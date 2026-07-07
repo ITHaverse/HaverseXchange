@@ -47,15 +47,17 @@ function animateLogos() {
   requestAnimationFrame(animateLogos);
 }
 
-carousel.addEventListener("mouseenter", () => {
-  isPaused = true;
-});
+if (carousel && track) {
+  carousel.addEventListener("mouseenter", () => {
+    isPaused = true;
+  });
 
-carousel.addEventListener("mouseleave", () => {
-  isPaused = false;
-});
+  carousel.addEventListener("mouseleave", () => {
+    isPaused = false;
+  });
 
-window.addEventListener("load", () => {
-  duplicateLogosUntilFull();
-  animateLogos();
-});
+  window.addEventListener("load", () => {
+    duplicateLogosUntilFull();
+    animateLogos();
+  });
+}
