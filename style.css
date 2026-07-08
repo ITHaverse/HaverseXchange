@@ -92,6 +92,118 @@ body {
 
 
 /* =========================
+   UPCOMING EVENT SECTION
+========================= */
+.upcoming-section {
+  padding: 90px 8%;
+  background: #f7f7f7;
+}
+
+.upcoming-card {
+  max-width: 1050px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.14);
+}
+
+.upcoming-date {
+  background: #0e3a5a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  padding: 30px;
+  text-align: center;
+}
+
+.upcoming-date .month {
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #c49a6c;
+}
+
+.upcoming-date .day {
+  font-size: 42px;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+.upcoming-details {
+  padding: 42px 48px;
+}
+
+.upcoming-details h3 {
+  color: #0e3a5a;
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.upcoming-details > p {
+  color: #555;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.event-info {
+  margin-bottom: 28px;
+}
+
+.event-info p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.event-info strong {
+  color: #0e3a5a;
+}
+
+.event-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.event-primary-btn,
+.event-secondary-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.event-primary-btn {
+  background: #0e3a5a;
+  color: white;
+}
+
+.event-primary-btn:hover {
+  background: #c49a6c;
+}
+
+.event-secondary-btn {
+  border: 2px solid #0e3a5a;
+  color: #0e3a5a;
+  background: white;
+}
+
+.event-secondary-btn:hover {
+  background: #0e3a5a;
+  color: white;
+}
+
+
+/* =========================
    ACTIVITY SECTION
 ========================= */
 .activity-section {
@@ -468,5 +580,38 @@ body {
   .copyright {
     margin-top: 45px;
     font-size: 13px;
+  }
+
+  .upcoming-section {
+    padding: 65px 6%;
+  }
+
+  .upcoming-card {
+    grid-template-columns: 1fr;
+  }
+
+  .upcoming-date {
+    min-height: 150px;
+  }
+
+  .upcoming-date .day {
+    font-size: 34px;
+  }
+
+  .upcoming-details {
+    padding: 30px 24px;
+  }
+
+  .upcoming-details h3 {
+    font-size: 24px;
+  }
+
+  .event-buttons {
+    flex-direction: column;
+  }
+
+  .event-primary-btn,
+  .event-secondary-btn {
+    text-align: center;
   }
 }
