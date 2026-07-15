@@ -203,6 +203,102 @@ body {
 }
 
 
+/* ===== UPCOMING EVENT SLIDER ===== */
+
+.upcoming-slider-wrapper{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:35px;
+}
+
+.upcoming-slider{
+
+    width:100%;
+    max-width:1050px;
+    position:relative;
+}
+
+.upcoming-slide{
+
+    display:none;
+    animation:fadeSlide .5s ease;
+}
+
+.upcoming-slide.active{
+
+    display:block;
+}
+
+.slider-btn{
+
+    width:55px;
+    height:55px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#0e3a5a;
+    color:white;
+
+    font-size:30px;
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.slider-btn:hover{
+
+    background:#c49a6c;
+}
+
+.slider-dots{
+
+    display:flex;
+    justify-content:center;
+    gap:14px;
+
+    margin-top:35px;
+}
+
+.dot{
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+    background:#ccc;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.dot.active{
+
+    background:#0e3a5a;
+}
+
+@keyframes fadeSlide{
+
+    from{
+
+        opacity:0;
+        transform:translateX(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+
 /* =========================
    ACTIVITY SECTION
 ========================= */
