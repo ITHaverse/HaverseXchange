@@ -62,77 +62,204 @@ if (carousel && track) {
   });
 }
 
-/* ==========================
-   UPCOMING EVENT SLIDER
-========================== */
+/* ===================================================
+   UPCOMING EVENT CAROUSEL
+=================================================== */
 
-const slides=document.querySelectorAll(".upcoming-slide");
-const dots=document.querySelectorAll(".dot");
+const eventTrack = document.querySelector(".upcoming-track");
+const eventSlides = document.querySelectorAll(".event-slide");
+const eventIndicators = document.querySelectorAll(".indicator");
 
-const nextBtn=document.querySelector(".next");
-const prevBtn=document.querySelector(".prev");
+if (eventTrack && eventSlides.length > 0) {
 
-let currentSlide=0;
+    let currentSlide = 0;
+    let autoPlay;
 
-function showSlide(index){
+    function updateSlider() {
 
-    slides.forEach(slide=>slide.classList.remove("active"));
-    dots.forEach(dot=>dot.classList.remove("active"));
+        eventTrack.style.transform =
+            `translateX(-${currentSlide * 100}%)`;
 
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
+        eventIndicators.forEach((dot, index) => {
 
-}
+            dot.classList.toggle(
+                "active",
+                index === currentSlide
+            );
 
-nextBtn.addEventListener("click",()=>{
-
-    currentSlide++;
-
-    if(currentSlide>=slides.length){
-
-        currentSlide=0;
+        });
 
     }
 
-    showSlide(currentSlide);
+    function nextSlide() {
 
-});
+        currentSlide++;
 
-prevBtn.addEventListener("click",()=>{
+        if (currentSlide >= eventSlides.length) {
 
-    currentSlide--;
+            currentSlide = 0;
 
-    if(currentSlide<0){
+        }
 
-        currentSlide=slides.length-1;
+        updateSlider();
 
     }
 
-    showSlide(currentSlide);
+    function previousSlide() {
 
-});
+        currentSlide--;
 
-dots.forEach((dot,index)=>{
+        if (currentSlide < 0) {
 
-    dot.addEventListener("click",()=>{
+            currentSlide = eventSlides.length - 1;
 
-        currentSlide=index;
-        showSlide(currentSlide);
+        }
+
+        updateSlider();
+
+    }
+
+    function startAutoPlay() {
+
+        autoPlay = setInterval(nextSlide, 7000);
+
+    }
+
+    function stopAutoPlay() {
+
+        clearInterval(autoPlay);
+
+    }
+
+    eventIndicators.forEach((dot, index) => {
+
+        dot.addEventListener("click", () => {
+
+            currentSlide = index;
+
+            updateSlider();
+
+            stopAutoPlay();
+
+            startAutoPlay();
+
+        });
 
     });
 
-});
+    /* =====================
+       TOUCH SUPPORT
+    ====================== */
 
-setInterval(()=>{
+    let startX = 0;
+    let endX = 0;
 
-    currentSlide++;
+    eventTrack.addEventListener("touchstart", e => {
 
-    if(currentSlide>=slides.length){
+        startX = e.touches[0].clientX;
 
-        currentSlide=0;
+        stopAutoPlay();
 
-    }
+    });
 
-    showSlide(currentSlide);
+    eventTrack.addEventListener("touchmove", e => {
 
-},7000);
+        endX = e.touches[0].clientX;
+
+    });
+
+    eventTrack.addEventListener("touchend", () => {
+
+        const distance = startX - endX;
+
+        if (distance > 60) {
+
+            nextSlide();
+
+        }
+
+        else if (distance < -60) {
+
+            previousSlide();
+
+        }
+
+        startAutoPlay();
+
+    });
+
+    /* =====================
+       MOUSE DRAG
+    ====================== */
+
+    let mouseDown = false;
+    let mouseStart = 0;
+    let mouseEnd = 0;
+
+    eventTrack.addEventListener("mousedown", e => {
+
+        mouseDown = true;
+
+        mouseStart = e.clientX;
+
+        stopAutoPlay();
+
+    });
+
+    window.addEventListener("mouseup", () => {
+
+        if (!mouseDown) return;
+
+        mouseDown = false;
+
+        const distance = mouseStart - mouseEnd;
+
+        if (distance > 60) {
+
+            nextSlide();
+
+        }
+
+        else if (distance < -60) {
+
+            previousSlide();
+
+        }
+
+        startAutoPlay();
+
+    });
+
+    window.addEventListener("mousemove", e => {
+
+        if (!mouseDown) return;
+
+        mouseEnd = e.clientX;
+
+    });
+
+    /* =====================
+       KEYBOARD
+    ====================== */
+
+    document.addEventListener("keydown", e => {
+
+        if (e.key === "ArrowRight") {
+
+            nextSlide();
+
+        }
+
+        if (e.key === "ArrowLeft") {
+
+            previousSlide();
+
+        }
+
+    });
+
+    updateSlider();
+
+    startAutoPlay();
+
+}

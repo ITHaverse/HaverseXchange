@@ -91,245 +91,596 @@ body {
 }
 
 
-/* =========================
-   UPCOMING EVENT SECTION
-========================= */
-.upcoming-section {
-  padding: 90px 8%;
-  background: #f7f7f7;
+/* ===================================================
+   UPCOMING EVENT
+=================================================== */
+
+.upcoming-section{
+
+    padding:100px 8%;
+
+    background:#ffffff;
+
+    overflow:hidden;
 }
 
-.upcoming-card {
-  max-width: 1050px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 230px 1fr;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.14);
+/* -----------------------
+   SLIDER
+----------------------- */
+
+.upcoming-slider{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    overflow:hidden;
+
+    position:relative;
 }
 
-.upcoming-date {
-  background: #0e3a5a;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 280px;
-  padding: 30px;
-  text-align: center;
+.upcoming-track{
+
+    display:flex;
+
+    transition:transform .75s cubic-bezier(.22,.61,.36,1);
+
+    will-change:transform;
 }
 
-.upcoming-date .month {
-  font-size: 22px;
-  letter-spacing: 2px;
-  font-weight: bold;
-  color: #c49a6c;
+.event-slide{
+
+    min-width:100%;
+
+    padding:8px;
+
+    box-sizing:border-box;
+
+    user-select:none;
 }
 
-.upcoming-date .day {
-  font-size: 42px;
-  font-weight: 800;
-  margin-top: 8px;
+/* -----------------------
+   CARD
+----------------------- */
+
+.event-card{
+
+    display:grid;
+
+    grid-template-columns:220px 1fr;
+
+    background:#ffffff;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.08),
+
+        0 8px 20px rgba(0,0,0,.05);
+
+    transition:
+
+        transform .35s,
+
+        box-shadow .35s;
 }
 
-.upcoming-details {
-  padding: 42px 48px;
+.event-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+        0 35px 80px rgba(0,0,0,.12),
+
+        0 15px 35px rgba(0,0,0,.08);
 }
 
-.upcoming-details h3{
+/* -----------------------
+   DATE PANEL
+----------------------- */
+
+.event-date{
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #184d73 0%,
+
+            #123f61 45%,
+
+            #0e3653 100%
+
+        );
+
+    color:#fff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:45px;
+
+    position:relative;
+}
+
+.event-date::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:28px;
+
+    width:90px;
+
+    height:2px;
+
+    background:rgba(255,255,255,.35);
+}
+
+.event-date::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:28px;
+
+    width:90px;
+
+    height:2px;
+
+    background:rgba(255,255,255,.35);
+}
+
+.event-month{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    color:#d7b07b;
+}
+
+.event-year{
+
+    margin-top:16px;
+
+    font-size:58px;
+
+    font-weight:800;
+
+    line-height:1;
+}
+
+/* -----------------------
+   CONTENT
+----------------------- */
+
+.event-content{
+
+    padding:48px 55px;
+}
+
+.event-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#edf6fc;
 
     color:#0e3a5a;
 
-    font-size:clamp(26px,3vw,30px);
+    border-radius:999px;
+
+    padding:8px 18px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+}
+
+.event-tag::before{
+
+    content:"";
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#c49a6c;
+}
+
+.event-content h3{
+
+    color:#0e3a5a;
+
+    font-size:34px;
 
     line-height:1.2;
 
     margin-bottom:18px;
 }
 
-.upcoming-details > p {
-  color: #555;
-  font-size: 17px;
-  line-height: 1.7;
-  margin-bottom: 24px;
+.event-description{
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    color:#666;
+
+    margin-bottom:36px;
 }
 
-.event-info {
-  margin-bottom: 28px;
+/* -----------------------
+   INFO
+----------------------- */
+
+.event-information{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:28px;
+
+    margin-bottom:40px;
 }
 
-.event-info p {
-  color: #333;
-  font-size: 16px;
-  margin-bottom: 8px;
+.event-item{
+
+    padding:18px;
+
+    background:#fafafa;
+
+    border-radius:14px;
+
+    border:1px solid #ededed;
+
+    transition:.3s;
 }
 
-.event-info strong {
-  color: #0e3a5a;
+.event-item:hover{
+
+    border-color:#c49a6c;
+
+    transform:translateY(-3px);
 }
 
-.event-buttons {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+.event-item h4{
+
+    color:#0e3a5a;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+}
+
+.event-item p{
+
+    color:#555;
+
+    font-size:16px;
+
+    font-weight:500;
+}
+
+/* ===================================================
+   BUTTONS
+=================================================== */
+
+.event-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
 }
 
 .event-primary-btn,
-.event-secondary-btn {
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+.event-secondary-btn{
+
+    padding:15px 34px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:all .35s ease;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
 }
 
-.event-primary-btn {
-  background: #0e3a5a;
-  color: white;
+.event-primary-btn{
+
+    background:#0e3a5a;
+
+    color:#fff;
 }
 
-.event-primary-btn:hover {
-  background: #c49a6c;
+.event-primary-btn:hover{
+
+    background:#c49a6c;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(196,154,108,.35);
 }
 
-.event-secondary-btn {
-  border: 2px solid #0e3a5a;
-  color: #0e3a5a;
-  background: white;
+.event-secondary-btn{
+
+    border:2px solid #0e3a5a;
+
+    color:#0e3a5a;
+
+    background:#fff;
 }
 
-.event-secondary-btn:hover {
-  background: #0e3a5a;
-  color: white;
+.event-secondary-btn:hover{
+
+    background:#0e3a5a;
+
+    color:#fff;
+
+    transform:translateY(-3px);
 }
 
+/* ===================================================
+   INDICATORS
+=================================================== */
 
-/* ===== UPCOMING EVENT SLIDER ===== */
-
-.upcoming-slider-wrapper{
+.slider-indicators{
 
     display:flex;
-    align-items:center;
+
     justify-content:center;
-    gap:35px;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-top:42px;
+}
+
+.indicator{
+
+    width:12px;
+
+    height:12px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#d5d5d5;
+
+    cursor:pointer;
+
+    transition:all .45s ease;
+}
+
+.indicator.active{
+
+    width:70px;
+
+    background:#0e3a5a;
+}
+
+/* ===================================================
+   SLIDER STATES
+=================================================== */
+
+.upcoming-track.dragging{
+
+    transition:none;
+
+    cursor:grabbing;
+}
+
+.event-slide{
+
+    cursor:grab;
+}
+
+/* ===================================================
+   TABLET
+=================================================== */
+
+@media (max-width:992px){
+
+.event-card{
+
+    grid-template-columns:180px 1fr;
+}
+
+.event-content{
+
+    padding:36px;
+}
+
+.event-content h3{
+
+    font-size:28px;
+}
+
+.event-information{
+
+    gap:18px;
+}
+
+.event-item{
+
+    padding:14px;
+}
+
+}
+
+/* ===================================================
+   MOBILE
+=================================================== */
+
+@media (max-width:768px){
+
+.upcoming-section{
+
+    padding:70px 18px;
 }
 
 .upcoming-slider{
 
+    overflow:visible;
+}
+
+.event-card{
+
+    grid-template-columns:1fr;
+
+    border-radius:22px;
+}
+
+.event-date{
+
+    padding:34px;
+}
+
+.event-date::before,
+.event-date::after{
+
+    width:65px;
+}
+
+.event-month{
+
+    font-size:20px;
+}
+
+.event-year{
+
+    font-size:46px;
+}
+
+.event-content{
+
+    padding:30px 24px;
+}
+
+.event-tag{
+
+    font-size:13px;
+}
+
+.event-content h3{
+
+    font-size:26px;
+
+    margin-bottom:16px;
+}
+
+.event-description{
+
+    font-size:16px;
+
+    line-height:1.8;
+}
+
+.event-information{
+
+    grid-template-columns:1fr;
+
+    gap:16px;
+}
+
+.event-buttons{
+
+    flex-direction:column;
+}
+
+.event-primary-btn,
+.event-secondary-btn{
+
     width:100%;
-    max-width:1050px;
-    position:relative;
 }
 
-.upcoming-slide{
+.slider-indicators{
 
-    display:none;
-    animation:fadeSlide .5s ease;
+    margin-top:26px;
 }
 
-.upcoming-slide.active{
+.indicator.active{
 
-    display:block;
+    width:48px;
 }
-
-.slider-btn{
-
-    position:absolute;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    width:52px;
-
-    height:52px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:#0e3a5a;
-
-    color:white;
-
-    font-size:28px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    z-index:50;
-}
-
-.upcoming-slider-wrapper{
-
-    position:relative;
-}
-
-.prev{
-
-    left:15px;
-}
-
-.next{
-
-    right:15px;
-}
-
-.slider-btn:hover{
-
-    background:#c49a6c;
-}
-
-.slider-dots{
-
-    display:flex;
-    justify-content:center;
-    gap:14px;
-
-    margin-top:35px;
-}
-
-.dot{
-
-    width:14px;
-    height:14px;
-
-    border-radius:50%;
-    background:#ccc;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.dot.active{
-
-    background:#0e3a5a;
-}
-
-@keyframes fadeSlide{
-
-    from{
-
-        opacity:0;
-        transform:translateX(30px);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:translateX(0);
-
-    }
 
 }
 
+/* ===================================================
+   SMALL PHONE
+=================================================== */
+
+@media (max-width:480px){
+
+.event-content{
+
+    padding:24px 20px;
+}
+
+.event-content h3{
+
+    font-size:23px;
+}
+
+.event-description{
+
+    font-size:15px;
+}
+
+.event-date{
+
+    padding:28px;
+}
+
+.event-year{
+
+    font-size:40px;
+}
+
+.event-month{
+
+    font-size:18px;
+}
+}
 
 /* =========================
    ACTIVITY SECTION
@@ -708,140 +1059,5 @@ body {
   .copyright {
     margin-top: 45px;
     font-size: 13px;
-  }
-
-  .prev{
-
-    left:8px;
-  }
-
-.next{
-
-    right:8px;
-  }
-
-.slider-btn{
-
-    width:46px;
-
-    height:46px;
-
-    font-size:24px;
-
-    opacity:.95;
-  }
-
-.slider-dots{
-
-    margin-top:20px;
-  }
-
-  /* ===========================
-   UPCOMING EVENT (MOBILE)
-=========================== */
-
-.upcoming-section{
-
-    padding:60px 20px;
-  }
-
-.upcoming-slider-wrapper{
-
-    position:relative;
-
-    display:block;
-
-    width:100%;
-  }
-
-.upcoming-slider{
-
-    width:100%;
-}
-
-.upcoming-slide{
-
-    width:100%;
-  }
-
-.upcoming-card{
-
-    display:block;
-
-    width:100%;
-
-    max-width:380px;
-
-    margin:auto;
-
-    border-radius:22px;
-
-    overflow:hidden;
-  }
-
-.upcoming-date{
-
-    min-height:135px;
-
-    padding:25px;
-  }
-
-.upcoming-date .month{
-
-    font-size:18px;
-  }
-
-.upcoming-date .day{
-
-    font-size:42px;
-  }
-
-.upcoming-details{
-
-    padding:28px;
-  }
-
-.upcoming-details h3{
-
-    font-size:34px;
-
-    line-height:1.15;
-
-    margin-bottom:18px;
-  }
-
-.upcoming-details>p{
-
-    font-size:18px;
-
-    line-height:1.8;
-  }
-
-.event-info p{
-
-    font-size:18px;
-
-    margin-bottom:10px;
-  }
-
-.event-buttons{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:16px;
-  }
-
-.event-primary-btn,
-.event-secondary-btn{
-
-    width:100%;
-
-    padding:16px;
-
-    text-align:center;
-
-    font-size:19px;
   }
 }
