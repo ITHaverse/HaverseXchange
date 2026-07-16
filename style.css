@@ -139,10 +139,15 @@ body {
   padding: 42px 48px;
 }
 
-.upcoming-details h3 {
-  color: #0e3a5a;
-  font-size: 30px;
-  margin-bottom: 18px;
+.upcoming-details h3{
+
+    color:#0e3a5a;
+
+    font-size:clamp(26px,3vw,30px);
+
+    line-height:1.2;
+
+    margin-bottom:18px;
 }
 
 .upcoming-details > p {
@@ -233,19 +238,46 @@ body {
 
 .slider-btn{
 
-    width:55px;
-    height:55px;
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:52px;
+
+    height:52px;
 
     border:none;
+
     border-radius:50%;
 
     background:#0e3a5a;
+
     color:white;
 
-    font-size:30px;
+    font-size:28px;
+
     cursor:pointer;
 
     transition:.3s;
+
+    z-index:50;
+}
+
+.upcoming-slider-wrapper{
+
+    position:relative;
+}
+
+.prev{
+
+    left:15px;
+}
+
+.next{
+
+    right:15px;
 }
 
 .slider-btn:hover{
@@ -678,36 +710,138 @@ body {
     font-size: 13px;
   }
 
-  .upcoming-section {
-    padding: 65px 6%;
+  .prev{
+
+    left:8px;
   }
 
-  .upcoming-card {
-    grid-template-columns: 1fr;
+.next{
+
+    right:8px;
   }
 
-  .upcoming-date {
-    min-height: 150px;
+.slider-btn{
+
+    width:46px;
+
+    height:46px;
+
+    font-size:24px;
+
+    opacity:.95;
   }
 
-  .upcoming-date .day {
-    font-size: 34px;
+.slider-dots{
+
+    margin-top:20px;
   }
 
-  .upcoming-details {
-    padding: 30px 24px;
+  /* ===========================
+   UPCOMING EVENT (MOBILE)
+=========================== */
+
+.upcoming-section{
+
+    padding:60px 20px;
   }
 
-  .upcoming-details h3 {
-    font-size: 24px;
+.upcoming-slider-wrapper{
+
+    position:relative;
+
+    display:block;
+
+    width:100%;
   }
 
-  .event-buttons {
-    flex-direction: column;
+.upcoming-slider{
+
+    width:100%;
+}
+
+.upcoming-slide{
+
+    width:100%;
   }
 
-  .event-primary-btn,
-  .event-secondary-btn {
-    text-align: center;
+.upcoming-card{
+
+    display:block;
+
+    width:100%;
+
+    max-width:380px;
+
+    margin:auto;
+
+    border-radius:22px;
+
+    overflow:hidden;
+  }
+
+.upcoming-date{
+
+    min-height:135px;
+
+    padding:25px;
+  }
+
+.upcoming-date .month{
+
+    font-size:18px;
+  }
+
+.upcoming-date .day{
+
+    font-size:42px;
+  }
+
+.upcoming-details{
+
+    padding:28px;
+  }
+
+.upcoming-details h3{
+
+    font-size:34px;
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+  }
+
+.upcoming-details>p{
+
+    font-size:18px;
+
+    line-height:1.8;
+  }
+
+.event-info p{
+
+    font-size:18px;
+
+    margin-bottom:10px;
+  }
+
+.event-buttons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+  }
+
+.event-primary-btn,
+.event-secondary-btn{
+
+    width:100%;
+
+    padding:16px;
+
+    text-align:center;
+
+    font-size:19px;
   }
 }
