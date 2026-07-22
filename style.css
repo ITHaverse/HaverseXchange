@@ -15,7 +15,7 @@ body {
 ========================= */
 .intro-section {
   min-height: 100vh;
-  background-image: url("../images/background-5.jpg");
+  background-image: url("images/background-5.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -831,7 +831,7 @@ body {
 ========================= */
 .bottom-section {
   min-height: 560px;
-  background-image: url("../images/background-5.jpg");
+  background-image: url("images/background-5.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
