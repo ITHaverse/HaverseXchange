@@ -96,86 +96,85 @@ body {
 =================================================== */
 
 .upcoming-section{
-
     padding:100px 8%;
-
     background:#ffffff;
-
     overflow:hidden;
 }
 
-/* -----------------------
+/* ===================================================
    SLIDER
------------------------ */
+=================================================== */
 
 .upcoming-slider{
-
     position:relative;
-
+    width:100%;
     overflow:hidden;
-
     touch-action:pan-y;
-
 }
 
 .upcoming-track{
-
     display:flex;
-
+    align-items:stretch;
     will-change:transform;
-
     transform:translate3d(0,0,0);
-
     transition:transform .55s cubic-bezier(.22,.61,.36,1);
-
 }
+
+.upcoming-track.dragging{
+    transition:none;
+    cursor:grabbing;
+}
+
+/* ===================================================
+   SLIDE
+=================================================== */
 
 .event-slide{
 
     flex:0 0 100%;
+    width:100%;
+    min-width:100%;
 
-    box-sizing:border-box;
+    padding:0 10px;
 
     flex-shrink:0;
 
+    cursor:grab;
+
     user-select:none;
-
     -webkit-user-select:none;
-
     -webkit-touch-callout:none;
-
 }
 
-/* -----------------------
+/* ===================================================
    CARD
------------------------ */
+=================================================== */
 
 .event-card{
 
-  width:100%;
+    width:100%;
 
-  display:grid;
+    display:grid;
 
     grid-template-columns:220px 1fr;
 
     background:#ffffff;
 
-    border: radius 36px;
+    border-radius:32px;
+
+    overflow:hidden;
 
     transform:translateZ(0);
 
     backface-visibility:hidden;
 
-    overflow:hidden;
-
     box-shadow:
-    0 20px 50px rgba(15,35,60,.08);
+        0 15px 40px rgba(15,35,60,.08),
+        0 5px 15px rgba(15,35,60,.05);
 
     transition:
-
-        transform .35s,
-
-        box-shadow .35s;
+        transform .35s ease,
+        box-shadow .35s ease;
 }
 
 .event-card:hover{
@@ -183,78 +182,65 @@ body {
     transform:translateY(-6px);
 
     box-shadow:
-
-        0 35px 80px rgba(0,0,0,.12),
-
-        0 15px 35px rgba(0,0,0,.08);
+        0 30px 70px rgba(15,35,60,.14),
+        0 10px 30px rgba(15,35,60,.08);
 }
 
-/* -----------------------
+/* ===================================================
    DATE PANEL
------------------------ */
+=================================================== */
 
 .event-date{
 
     background:
-
         linear-gradient(
-
             180deg,
-
             #184d73 0%,
-
             #123f61 45%,
-
             #0e3653 100%
-
         );
 
     color:#fff;
 
     display:flex;
-
     flex-direction:column;
 
     justify-content:center;
-
     align-items:center;
 
-    padding:45px;
+    padding:46px;
 
     position:relative;
 }
 
-.event-date::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:28px;
-
-    width:90px;
-
-    height:2px;
-
-    background:rgba(255,255,255,.35);
-}
-
+.event-date::before,
 .event-date::after{
 
     content:"";
 
     position:absolute;
 
-    bottom:28px;
-
     width:90px;
-
     height:2px;
 
-    background:rgba(255,255,255,.35);
+    background:rgba(255,255,255,.28);
+}
+
+.event-date::before{
+
+    top:30px;
+
+}
+
+.event-date::after{
+
+    bottom:30px;
+
 }
 
 .event-month{
+
+    color:#d7b07b;
 
     font-size:24px;
 
@@ -262,12 +248,12 @@ body {
 
     letter-spacing:4px;
 
-    color:#d7b07b;
+    text-transform:uppercase;
 }
 
 .event-year{
 
-    margin-top:16px;
+    margin-top:18px;
 
     font-size:58px;
 
@@ -276,13 +262,19 @@ body {
     line-height:1;
 }
 
-/* -----------------------
+/* ===================================================
    CONTENT
------------------------ */
+=================================================== */
 
 .event-content{
 
-    padding:48px 55px;
+    padding:48px 54px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
 }
 
 .event-tag{
@@ -293,19 +285,21 @@ body {
 
     gap:8px;
 
-    background:#edf6fc;
+    width:max-content;
 
-    color:#0e3a5a;
+    padding:8px 18px;
 
     border-radius:999px;
 
-    padding:8px 18px;
+    background:#edf6fc;
+
+    color:#0e3a5a;
 
     font-size:14px;
 
     font-weight:700;
 
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 .event-tag::before{
@@ -313,7 +307,6 @@ body {
     content:"";
 
     width:8px;
-
     height:8px;
 
     border-radius:50%;
@@ -334,18 +327,18 @@ body {
 
 .event-description{
 
+    color:#666;
+
     font-size:17px;
 
-    line-height:1.9;
-
-    color:#666;
+    line-height:1.85;
 
     margin-bottom:36px;
 }
 
-/* -----------------------
-   INFO
------------------------ */
+/* ===================================================
+   INFORMATION
+=================================================== */
 
 .event-information{
 
@@ -353,29 +346,34 @@ body {
 
     grid-template-columns:repeat(3,1fr);
 
-    gap:28px;
+    gap:22px;
 
     margin-bottom:40px;
 }
 
 .event-item{
 
-    padding:18px;
-
     background:#fafafa;
+
+    border:1px solid #ececec;
 
     border-radius:14px;
 
-    border:1px solid #ededed;
+    padding:18px;
 
-    transition:.3s;
+    transition:
+        transform .3s,
+        border-color .3s,
+        box-shadow .3s;
 }
 
 .event-item:hover{
 
+    transform:translateY(-3px);
+
     border-color:#c49a6c;
 
-    transform:translateY(-3px);
+    box-shadow:0 10px 22px rgba(0,0,0,.05);
 }
 
 .event-item h4{
@@ -384,9 +382,9 @@ body {
 
     font-size:13px;
 
-    text-transform:uppercase;
-
     letter-spacing:2px;
+
+    text-transform:uppercase;
 
     margin-bottom:8px;
 }
@@ -408,36 +406,40 @@ body {
 
     display:flex;
 
-    gap:18px;
-
     flex-wrap:wrap;
+
+    gap:18px;
 }
 
 .event-primary-btn,
 .event-secondary-btn{
-
-    padding:15px 34px;
-
-    border-radius:999px;
-
-    font-weight:700;
-
-    text-decoration:none;
-
-    transition:all .35s ease;
 
     display:inline-flex;
 
     align-items:center;
 
     justify-content:center;
+
+    padding:15px 34px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:
+        transform .3s,
+        background .3s,
+        color .3s,
+        box-shadow .3s;
 }
 
 .event-primary-btn{
 
     background:#0e3a5a;
 
-    color:#fff;
+    color:#ffffff;
 }
 
 .event-primary-btn:hover{
@@ -446,23 +448,23 @@ body {
 
     transform:translateY(-3px);
 
-    box-shadow:0 15px 30px rgba(196,154,108,.35);
+    box-shadow:0 15px 28px rgba(196,154,108,.35);
 }
 
 .event-secondary-btn{
 
-    border:2px solid #0e3a5a;
+    background:#ffffff;
 
     color:#0e3a5a;
 
-    background:#fff;
+    border:2px solid #0e3a5a;
 }
 
 .event-secondary-btn:hover{
 
     background:#0e3a5a;
 
-    color:#fff;
+    color:#ffffff;
 
     transform:translateY(-3px);
 }
@@ -474,55 +476,48 @@ body {
 .slider-indicators{
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     gap:14px;
 
     margin-top:42px;
+
 }
 
 .indicator{
 
     width:12px;
-
     height:12px;
 
     border:none;
 
     border-radius:999px;
 
-    background:#d5d5d5;
+    background:#d8d8d8;
 
     cursor:pointer;
 
-    transition:all .45s ease;
+    transition:
+        width .35s ease,
+        background .35s ease,
+        transform .35s ease;
+
+}
+
+.indicator:hover{
+
+    transform:scale(1.15);
+
 }
 
 .indicator.active{
 
-    width:70px;
+    width:60px;
 
     background:#0e3a5a;
+
 }
 
-/* ===================================================
-   SLIDER STATES
-=================================================== */
-
-.upcoming-track.dragging{
-
-    transition:none;
-
-    cursor:grabbing;
-}
-
-.event-slide{
-
-    cursor:grab;
-}
 
 /* ===================================================
    TABLET
@@ -530,32 +525,68 @@ body {
 
 @media (max-width:992px){
 
+.upcoming-section{
+
+    padding:80px 30px;
+
+}
+
 .event-card{
 
     grid-template-columns:180px 1fr;
+
+}
+
+.event-date{
+
+    padding:36px;
+
+}
+
+.event-month{
+
+    font-size:21px;
+
+}
+
+.event-year{
+
+    font-size:48px;
+
 }
 
 .event-content{
 
     padding:36px;
+
 }
 
 .event-content h3{
 
     font-size:28px;
+
+}
+
+.event-description{
+
+    font-size:16px;
+
 }
 
 .event-information{
 
-    gap:18px;
+    gap:16px;
+
 }
 
 .event-item{
 
-    padding:14px;
+    padding:16px;
+
 }
 
 }
+
 
 /* ===================================================
    MOBILE
@@ -566,94 +597,117 @@ body {
 .upcoming-section{
 
     padding:70px 18px;
+
 }
 
 .upcoming-slider{
 
-    overflow:visible;
+    overflow:hidden;
+
+}
+
+.event-slide{
+
+    padding:0;
+
 }
 
 .event-card{
 
     grid-template-columns:1fr;
 
-    border-radius:22px;
+    border-radius:24px;
+
 }
 
 .event-date{
 
-    padding:34px;
+    padding:30px;
+
 }
 
 .event-date::before,
 .event-date::after{
 
-    width:65px;
+    width:60px;
+
 }
 
 .event-month{
 
-    font-size:20px;
+    font-size:18px;
+
+    letter-spacing:3px;
+
 }
 
 .event-year{
 
-    font-size:46px;
+    font-size:42px;
+
 }
 
 .event-content{
 
-    padding:30px 24px;
+    padding:26px 22px;
+
 }
 
 .event-tag{
 
     font-size:13px;
+
 }
 
 .event-content h3{
 
-    font-size:26px;
+    font-size:24px;
 
-    margin-bottom:16px;
 }
 
 .event-description{
 
-    font-size:16px;
+    font-size:15px;
 
-    line-height:1.8;
+    line-height:1.75;
+
 }
 
 .event-information{
 
     grid-template-columns:1fr;
 
-    gap:16px;
+    gap:14px;
+
 }
 
 .event-buttons{
 
     flex-direction:column;
+
 }
 
 .event-primary-btn,
 .event-secondary-btn{
 
     width:100%;
+
 }
 
 .slider-indicators{
 
-    margin-top:26px;
+    margin-top:30px;
+
 }
 
 .indicator.active{
 
-    width:48px;
+    width:46px;
+
 }
 
 }
+
 
 /* ===================================================
    SMALL PHONE
@@ -661,35 +715,85 @@ body {
 
 @media (max-width:480px){
 
-.event-content{
+.upcoming-section{
 
-    padding:24px 20px;
+    padding:60px 14px;
+
 }
 
-.event-content h3{
+.event-card{
 
-    font-size:23px;
-}
+    border-radius:20px;
 
-.event-description{
-
-    font-size:15px;
 }
 
 .event-date{
 
-    padding:28px;
-}
+    padding:26px;
 
-.event-year{
-
-    font-size:40px;
 }
 
 .event-month{
 
-    font-size:18px;
+    font-size:17px;
+
 }
+
+.event-year{
+
+    font-size:36px;
+
+}
+
+.event-content{
+
+    padding:22px 18px;
+
+}
+
+.event-content h3{
+
+    font-size:22px;
+
+}
+
+.event-description{
+
+    font-size:14px;
+
+}
+
+.event-item{
+
+    padding:14px;
+
+}
+
+.event-item h4{
+
+    font-size:12px;
+
+}
+
+.event-item p{
+
+    font-size:15px;
+
+}
+
+.event-buttons{
+
+    gap:12px;
+
+}
+
+.event-primary-btn,
+.event-secondary-btn{
+
+    padding:14px 20px;
+
+}
+
 }
 
 /* =========================
