@@ -509,41 +509,32 @@ section{
    INDICATORS
 =========================== */
 
-.upcoming-indicators{
+.slider-indicators{
 
     display:flex;
     justify-content:center;
     align-items:center;
-
     gap:12px;
-
     margin-top:35px;
 
 }
 
-.upcoming-indicators button{
+.slider-indicators .indicator{
 
     width:12px;
     height:12px;
-
     border:none;
-
     border-radius:50%;
-
     background:#c8d3de;
-
     cursor:pointer;
-
     transition:.3s;
 
 }
 
-.upcoming-indicators button.active{
+.slider-indicators .indicator.active{
 
     width:34px;
-
     border-radius:50px;
-
     background:#0e3a5a;
 
 }
