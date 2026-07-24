@@ -2,6 +2,7 @@
    UPCOMING EVENT CAROUSEL
 =================================================== */
 
+const slider = document.querySelector(".upcoming-slider");
 const eventTrack = document.querySelector(".upcoming-track");
 const eventSlides = document.querySelectorAll(".event-slide");
 const eventIndicators = document.querySelectorAll(".indicator");
@@ -13,8 +14,10 @@ if (eventTrack && eventSlides.length > 0) {
 
     function updateSlider() {
 
+        const slideWidth = slider.offsetWidth;
+
         eventTrack.style.transform =
-            `translateX(-${currentSlide * 100}%)`;
+        `translateX(${-currentSlide * slideWidth}px)`;
 
         eventIndicators.forEach((dot, index) => {
 
@@ -84,27 +87,33 @@ if (eventTrack && eventSlides.length > 0) {
     });
 
 /* =====================
-   POINTER DRAG (Desktop + Mobile)
+   DRAG / SWIPE
 ===================== */
+
+    const slider = document.querySelector(".upcoming-slider");
 
     let isDragging = false;
     let startX = 0;
     let currentX = 0;
 
-    eventTrack.addEventListener("pointerdown", (e) => {
+    const swipeThreshold = 60;
+
+    slider.addEventListener("pointerdown", (e) => {
 
         isDragging = true;
 
         startX = e.clientX;
-        currentX = startX;
+        currentX = e.clientX;
 
         stopAutoPlay();
 
-        eventTrack.setPointerCapture(e.pointerId);
+        slider.setPointerCapture(e.pointerId);
+
+        eventTrack.classList.add("dragging");
 
     });
 
-    eventTrack.addEventListener("pointermove", (e) => {
+    slider.addEventListener("pointermove", (e) => {
 
         if (!isDragging) return;
 
@@ -112,21 +121,25 @@ if (eventTrack && eventSlides.length > 0) {
 
     });
 
-    eventTrack.addEventListener("pointerup", () => {
+    function finishDrag(e){
 
-        if (!isDragging) return;
+        if(!isDragging) return;
 
         isDragging = false;
 
-        const distance = startX - currentX;
+        slider.releasePointerCapture(e.pointerId);
 
-        if (distance > 60) {
+        eventTrack.classList.remove("dragging");
+
+        const distance = currentX - startX;
+
+        if(distance < -swipeThreshold){
 
             nextSlide();
 
         }
 
-        else if (distance < -60) {
+        else if(distance > swipeThreshold){
 
             previousSlide();
 
@@ -134,13 +147,25 @@ if (eventTrack && eventSlides.length > 0) {
 
         startAutoPlay();
 
+    }
+
+    slider.addEventListener("pointerup", finishDrag);
+
+    slider.addEventListener("pointercancel", finishDrag);
+
+    slider.addEventListener("pointerleave", (e)=>{
+
+        if(isDragging){
+
+            finishDrag(e);
+
+        }
+
     });
 
-    eventTrack.addEventListener("pointercancel", () => {
+    window.addEventListener("resize", () => {
 
-        isDragging = false;
-
-        startAutoPlay();
+    updateSlider();
 
     });
 
