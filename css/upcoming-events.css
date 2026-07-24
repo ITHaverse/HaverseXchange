@@ -1,0 +1,586 @@
+/* ===================================================
+   UPCOMING EVENT
+=================================================== */
+
+.upcoming-section{
+
+    padding:100px 8%;
+
+    background:#ffffff;
+
+    overflow:hidden;
+}
+/* -----------------------
+   SLIDER
+----------------------- */
+
+.upcoming-slider{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:transparent;
+
+    box-shadow:none;
+
+    border:none;
+}
+
+.upcoming-track{
+
+    display:flex;
+
+    transition:transform .75s cubic-bezier(.22,.61,.36,1);
+
+    will-change:transform;
+}
+
+.event-slide{
+
+    min-width:100%;
+
+    padding:25px 10px;
+
+    box-sizing:border-box;
+
+    user-select:none;
+}
+
+/* -----------------------
+   CARD
+----------------------- */
+
+.event-card{
+
+    display:grid;
+
+    grid-template-columns:220px 1fr;
+
+    background:#fff;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    border:1px solid #efefef;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.event-card:hover{
+
+    transform:none;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+
+}
+
+/* -----------------------
+   DATE PANEL
+----------------------- */
+
+.event-date{
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #184d73 0%,
+
+            #123f61 45%,
+
+            #0e3653 100%
+
+        );
+
+    color:#fff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:45px;
+
+    position:relative;
+}
+
+.event-date::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:28px;
+
+    width:90px;
+
+    height:2px;
+
+    background:rgba(255,255,255,.35);
+}
+
+.event-date::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:28px;
+
+    width:90px;
+
+    height:2px;
+
+    background:rgba(255,255,255,.35);
+}
+
+.event-month{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    color:#d7b07b;
+}
+
+.event-year{
+
+    margin-top:16px;
+
+    font-size:58px;
+
+    font-weight:800;
+
+    line-height:1;
+}
+
+/* -----------------------
+   CONTENT
+----------------------- */
+
+.event-content{
+
+    padding:48px 55px;
+}
+
+.event-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#edf6fc;
+
+    color:#0e3a5a;
+
+    border-radius:999px;
+
+    padding:8px 18px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+}
+
+.event-tag::before{
+
+    content:"";
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#c49a6c;
+}
+
+.event-content h3{
+
+    color:#0e3a5a;
+
+    font-size:34px;
+
+    line-height:1.2;
+
+    margin-bottom:18px;
+}
+
+.event-description{
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    color:#666;
+
+    margin-bottom:36px;
+}
+
+/* -----------------------
+   INFO
+----------------------- */
+
+.event-information{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:28px;
+
+    margin-bottom:40px;
+}
+
+.event-item{
+
+    padding:18px;
+
+    background:#fafafa;
+
+    border-radius:14px;
+
+    border:1px solid #ededed;
+
+    transition:.3s;
+}
+
+.event-item:hover{
+
+    border-color:#c49a6c;
+
+    transform:translateY(-3px);
+}
+
+.event-item h4{
+
+    color:#0e3a5a;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+}
+
+.event-item p{
+
+    color:#555;
+
+    font-size:16px;
+
+    font-weight:500;
+}
+
+/* ===================================================
+   BUTTONS
+=================================================== */
+
+.event-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+}
+
+.event-primary-btn,
+.event-secondary-btn{
+
+    padding:15px 34px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:all .35s ease;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.event-primary-btn{
+
+    background:#0e3a5a;
+
+    color:#fff;
+}
+
+.event-primary-btn:hover{
+
+    background:#c49a6c;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(196,154,108,.35);
+}
+
+.event-secondary-btn{
+
+    border:2px solid #0e3a5a;
+
+    color:#0e3a5a;
+
+    background:#fff;
+}
+
+.event-secondary-btn:hover{
+
+    background:#0e3a5a;
+
+    color:#fff;
+
+    transform:translateY(-3px);
+}
+
+/* ===================================================
+   INDICATORS
+=================================================== */
+
+.slider-indicators{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-top:42px;
+}
+
+.indicator{
+
+    width:12px;
+
+    height:12px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#d5d5d5;
+
+    cursor:pointer;
+
+    transition:all .45s ease;
+}
+
+.indicator.active{
+
+    width:70px;
+
+    background:#0e3a5a;
+}
+
+/* ===================================================
+   SLIDER STATES
+=================================================== */
+
+.upcoming-track.dragging{
+
+    transition:none;
+
+    cursor:grabbing;
+}
+
+.event-slide{
+
+    cursor:grab;
+}
+
+/* ===================================================
+   TABLET
+=================================================== */
+
+@media (max-width:992px){
+
+.event-card{
+
+    grid-template-columns:180px 1fr;
+}
+
+.event-content{
+
+    padding:36px;
+}
+
+.event-content h3{
+
+    font-size:28px;
+}
+
+.event-information{
+
+    gap:18px;
+}
+
+.event-item{
+
+    padding:14px;
+}
+
+}
+
+/* ===================================================
+   MOBILE
+=================================================== */
+
+@media (max-width:768px){
+
+.upcoming-section{
+
+    padding:70px 18px;
+}
+
+.upcoming-slider{
+
+    overflow:visible;
+}
+
+.event-card{
+
+    grid-template-columns:1fr;
+
+    border-radius:22px;
+}
+
+.event-date{
+
+    padding:34px;
+}
+
+.event-date::before,
+.event-date::after{
+
+    width:65px;
+}
+
+.event-month{
+
+    font-size:20px;
+}
+
+.event-year{
+
+    font-size:46px;
+}
+
+.event-content{
+
+    padding:30px 24px;
+}
+
+.event-tag{
+
+    font-size:13px;
+}
+
+.event-content h3{
+
+    font-size:26px;
+
+    margin-bottom:16px;
+}
+
+.event-description{
+
+    font-size:16px;
+
+    line-height:1.8;
+}
+
+.event-information{
+
+    grid-template-columns:1fr;
+
+    gap:16px;
+}
+
+.event-buttons{
+
+    flex-direction:column;
+}
+
+.event-primary-btn,
+.event-secondary-btn{
+
+    width:100%;
+}
+
+.slider-indicators{
+
+    margin-top:26px;
+}
+
+.indicator.active{
+
+    width:48px;
+}
+
+}
+
+/* ===================================================
+   SMALL PHONE
+=================================================== */
+
+@media (max-width:480px){
+
+.event-content{
+
+    padding:24px 20px;
+}
+
+.event-content h3{
+
+    font-size:23px;
+}
+
+.event-description{
+
+    font-size:15px;
+}
+
+.event-date{
+
+    padding:28px;
+}
+
+.event-year{
+
+    font-size:40px;
+}
+
+.event-month{
+
+    font-size:18px;
+}
+}
