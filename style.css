@@ -126,6 +126,11 @@ body {
     transition:transform .75s cubic-bezier(.22,.61,.36,1);
 
     will-change:transform;
+
+    touch-action:pan-y;
+
+    cursor:grab;
+
 }
 
 .event-slide{
@@ -137,6 +142,11 @@ body {
     box-sizing:border-box;
 
     user-select:none;
+
+    -webkit-user-select:none;
+
+    -webkit-touch-callout:none;
+
 }
 
 /* -----------------------

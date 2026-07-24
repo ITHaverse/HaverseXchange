@@ -83,30 +83,42 @@ if (eventTrack && eventSlides.length > 0) {
 
     });
 
-    /* =====================
-       TOUCH SUPPORT
-    ====================== */
+/* =====================
+   POINTER DRAG (Desktop + Mobile)
+===================== */
 
+    let isDragging = false;
     let startX = 0;
-    let endX = 0;
+    let currentX = 0;
 
-    eventTrack.addEventListener("touchstart", e => {
+    eventTrack.addEventListener("pointerdown", (e) => {
 
-        startX = e.touches[0].clientX;
+        isDragging = true;
+
+        startX = e.clientX;
+        currentX = startX;
 
         stopAutoPlay();
 
-    });
-
-    eventTrack.addEventListener("touchmove", e => {
-
-        endX = e.touches[0].clientX;
+        eventTrack.setPointerCapture(e.pointerId);
 
     });
 
-    eventTrack.addEventListener("touchend", () => {
+    eventTrack.addEventListener("pointermove", (e) => {
 
-        const distance = startX - endX;
+        if (!isDragging) return;
+
+        currentX = e.clientX;
+
+    });
+
+    eventTrack.addEventListener("pointerup", () => {
+
+        if (!isDragging) return;
+
+        isDragging = false;
+
+        const distance = startX - currentX;
 
         if (distance > 60) {
 
@@ -124,53 +136,11 @@ if (eventTrack && eventSlides.length > 0) {
 
     });
 
-    /* =====================
-       MOUSE DRAG
-    ====================== */
+    eventTrack.addEventListener("pointercancel", () => {
 
-    let mouseDown = false;
-    let mouseStart = 0;
-    let mouseEnd = 0;
-
-    eventTrack.addEventListener("mousedown", e => {
-
-        mouseDown = true;
-
-        mouseStart = e.clientX;
-
-        stopAutoPlay();
-
-    });
-
-    window.addEventListener("mouseup", () => {
-
-        if (!mouseDown) return;
-
-        mouseDown = false;
-
-        const distance = mouseStart - mouseEnd;
-
-        if (distance > 60) {
-
-            nextSlide();
-
-        }
-
-        else if (distance < -60) {
-
-            previousSlide();
-
-        }
+        isDragging = false;
 
         startAutoPlay();
-
-    });
-
-    window.addEventListener("mousemove", e => {
-
-        if (!mouseDown) return;
-
-        mouseEnd = e.clientX;
 
     });
 
