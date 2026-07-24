@@ -10,27 +10,59 @@ const eventIndicators = document.querySelectorAll(".indicator");
 if (eventTrack && eventSlides.length > 0) {
 
     let currentSlide = 0;
+    let currentTranslate = 0;
+    let previousTranslate = 0;
+    let animationID = null;
     let autoPlay;
 
-    function updateSlider() {
-
-        const gap = parseFloat(
-        getComputedStyle(eventTrack).gap
-        ) || 0;
+    function updateSlider(animate = true) {
 
         const slideWidth = slider.offsetWidth;
 
+        currentTranslate = -(currentSlide * slideWidth);
+        previousTranslate = currentTranslate;
+
+        if(animate){
+
+            eventTrack.style.transition =
+                "transform .55s cubic-bezier(.22,.61,.36,1)";
+
+        }else{
+
+            eventTrack.style.transition = "none";
+
+        }
+
         eventTrack.style.transform =
-        `translateX(${-currentSlide * slideWidth}px)`;
+            `translate3d(${currentTranslate}px,0,0)`;
 
-        eventIndicators.forEach((dot, index) => {
+        updateIndicators();
+    }
 
-            dot.classList.toggle(
-                "active",
-                index === currentSlide
-            );
+    function setTranslate(x){
 
-        });
+    currentTranslate = x;
+
+    eventTrack.style.transform =
+        `translate3d(${x}px,0,0)`;
+
+    }
+
+    function updateIndicators() {
+
+    eventIndicators.forEach((dot, index) => {
+
+        if (index === currentSlide) {
+
+            dot.classList.add("active");
+
+        } else {
+
+            dot.classList.remove("active");
+
+        }
+
+    });
 
     }
 
@@ -93,64 +125,77 @@ if (eventTrack && eventSlides.length > 0) {
 /* =====================
    DRAG / SWIPE
 ===================== */
-
-    const slider = document.querySelector(".upcoming-slider");
-
     let isDragging = false;
     let startX = 0;
     let currentX = 0;
 
     const swipeThreshold = 60;
 
-    slider.addEventListener("pointerdown", (e) => {
+    slider.addEventListener("pointermove",(e)=>{
 
-        isDragging = true;
+        if(!isDragging) return;
 
-        startX = e.clientX;
         currentX = e.clientX;
 
-        stopAutoPlay();
+        const delta = currentX - startX;
 
-        slider.setPointerCapture(e.pointerId);
-
-        eventTrack.classList.add("dragging");
+        setTranslate(previousTranslate + delta);
 
     });
+    
+    slider.addEventListener("pointerdown", (e) => {
 
-    slider.addEventListener("pointermove", (e) => {
+    isDragging = true;
 
-        if (!isDragging) return;
+    startX = e.clientX;
+    currentX = e.clientX;
 
-        currentX = e.clientX;
+    previousTranslate = currentTranslate;
+
+    stopAutoPlay();
+
+    slider.setPointerCapture(e.pointerId);
+
+    eventTrack.classList.add("dragging");
 
     });
 
     function finishDrag(e){
+    
+    if (!isDragging) return;
 
-        if(!isDragging) return;
+    isDragging = false;
 
-        isDragging = false;
+    slider.releasePointerCapture(e.pointerId);
 
-        slider.releasePointerCapture(e.pointerId);
+    eventTrack.classList.remove("dragging");
+    
+    const distance = currentX - startX;
 
-        eventTrack.classList.remove("dragging");
+    if(distance < -swipeThreshold){
 
-        const distance = currentX - startX;
+        currentSlide++;
 
-        if(distance < -swipeThreshold){
+    }
+    else if(distance > swipeThreshold){
 
-            nextSlide();
+        currentSlide--;
 
-        }
+    }
 
-        else if(distance > swipeThreshold){
+    if(currentSlide < 0){
 
-            previousSlide();
+        currentSlide = eventSlides.length - 1;
 
-        }
+    }
 
-        startAutoPlay();
+    if(currentSlide >= eventSlides.length){
 
+        currentSlide = 0;
+
+    }
+
+    updateSlider(true);
     }
 
     slider.addEventListener("pointerup", finishDrag);
@@ -196,5 +241,4 @@ if (eventTrack && eventSlides.length > 0) {
     updateSlider();
 
     startAutoPlay();
-
 }
