@@ -14,6 +14,10 @@ if (eventTrack && eventSlides.length > 0) {
 
     function updateSlider() {
 
+        const gap = parseFloat(
+        getComputedStyle(eventTrack).gap
+        ) || 0;
+
         const slideWidth = slider.offsetWidth;
 
         eventTrack.style.transform =
