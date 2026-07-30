@@ -6,6 +6,7 @@ async function loadComponent(id, file) {
 }
 
 Promise.all([
+    loadComponent("header", "components/header.html"),
     loadComponent("intro", "components/intro.html"),
     loadComponent("upcoming-events", "components/upcoming-events.html"),
     loadComponent("activities", "components/activities.html"),
@@ -14,6 +15,11 @@ Promise.all([
 ]).then(() => {
 
     // Load feature scripts AFTER HTML is loaded
+
+    const headerScript = document.createElement("script");
+    headerScript.src = "js/headerNavigation.js";
+    document.body.appendChild(headerScript);
+
 
     const logoScript = document.createElement("script");
     logoScript.src = "js/logoCarousel.js";
