@@ -145,18 +145,24 @@ if (eventTrack && eventSlides.length > 0) {
     
     slider.addEventListener("pointerdown", (e) => {
 
-    isDragging = true;
+        // Allow links and buttons inside the event card
+        // to work normally without triggering carousel drag
+        if (e.target.closest("a, button")) {
+            return;
+        }
 
-    startX = e.clientX;
-    currentX = e.clientX;
+        isDragging = true;
 
-    previousTranslate = currentTranslate;
+        startX = e.clientX;
+        currentX = e.clientX;
 
-    stopAutoPlay();
+        previousTranslate = currentTranslate;
 
-    slider.setPointerCapture(e.pointerId);
+        stopAutoPlay();
 
-    eventTrack.classList.add("dragging");
+        slider.setPointerCapture(e.pointerId);
+
+        eventTrack.classList.add("dragging");
 
     });
 
