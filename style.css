@@ -1107,6 +1107,9 @@ section{
         align-items:center;
         gap:18px;
         flex-shrink:0;
+        /* Keep a consistent gap at the loop boundary between duplicated sets. */
+        padding-right:18px;
+        box-sizing:content-box;
     }
 
     /* First row: LEFT -> RIGHT */
@@ -1162,6 +1165,7 @@ section{
 
     .mobile-logo-set{
         gap:16px;
+        padding-right:16px;
     }
 
     .mobile-logo-carousel .logo-card{
