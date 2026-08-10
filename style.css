@@ -1061,39 +1061,92 @@ section{
 }
 
 /* ===========================
-   MOBILE
+   MOBILE - TWO LOGO ROWS
 =========================== */
+
+/* Hidden on desktop/tablet */
+.mobile-logo-carousel{
+    display:none;
+}
 
 @media(max-width:768px){
 
-.joined{
+    .joined{
+        padding:70px 0;
+    }
 
-    padding:70px 0;
+    /* Hide the original one-row carousel on mobile */
+    .logo-carousel-desktop{
+        display:none;
+    }
 
-}
+    /* Two-row mobile carousel */
+    .mobile-logo-carousel{
+        display:flex;
+        flex-direction:column;
+        gap:18px;
+        width:100%;
+        overflow:hidden;
+        padding:15px 0;
+    }
 
-.logo-track{
+    .mobile-logo-row{
+        position:relative;
+        width:100%;
+        overflow:hidden;
+    }
 
-    gap:22px;
+    .mobile-logo-track{
+        display:flex;
+        width:max-content;
+        will-change:transform;
+    }
 
-}
+    .mobile-logo-set{
+        display:flex;
+        align-items:center;
+        gap:18px;
+        flex-shrink:0;
+    }
 
-.logo-card{
+    /* First row: LEFT -> RIGHT */
+    .mobile-logo-track-right{
+        animation:mobileLogoRight 18s linear infinite;
+    }
 
-    width:140px;
+    /* Second row: RIGHT -> LEFT */
+    .mobile-logo-track-left{
+        animation:mobileLogoLeft 18s linear infinite;
+    }
 
-    height:88px;
+    @keyframes mobileLogoRight{
+        from{
+            transform:translateX(-50%);
+        }
+        to{
+            transform:translateX(0);
+        }
+    }
 
-    padding:14px;
+    @keyframes mobileLogoLeft{
+        from{
+            transform:translateX(0);
+        }
+        to{
+            transform:translateX(-50%);
+        }
+    }
 
-}
+    .mobile-logo-carousel .logo-card{
+        width:120px;
+        height:75px;
+        padding:12px;
+        flex-shrink:0;
+    }
 
-.logo-carousel::before,
-.logo-carousel::after{
-
-    width:55px;
-
-}
+    .mobile-logo-carousel .logo-card:hover{
+        transform:none;
+    }
 
 }
 
@@ -1103,21 +1156,19 @@ section{
 
 @media(max-width:480px){
 
-.logo-track{
+    .mobile-logo-carousel{
+        gap:14px;
+    }
 
-    gap:18px;
+    .mobile-logo-set{
+        gap:16px;
+    }
 
-}
-
-.logo-card{
-
-    width:120px;
-
-    height:75px;
-
-    padding:12px;
-
-}
+    .mobile-logo-carousel .logo-card{
+        width:115px;
+        height:72px;
+        padding:10px;
+    }
 
 }
 

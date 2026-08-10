@@ -1,5 +1,5 @@
-const carousel = document.querySelector(".logo-carousel");
-const track = document.querySelector(".logo-track");
+const carousel = document.querySelector(".logo-carousel-desktop");
+const track = document.querySelector(".logo-carousel-desktop .logo-track");
 
 let position = 0;
 let speed = 1.0;
