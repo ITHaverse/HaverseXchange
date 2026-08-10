@@ -59,3 +59,41 @@ if (carousel && track) {
   duplicateLogosUntilFull();
   animateLogos();
 }
+
+
+/* =========================================================
+   MOBILE TWO-ROW CAROUSEL
+   Measure one complete logo set so the animation loops
+   at the exact same point every time.
+========================================================= */
+function setupMobileLogoLoops() {
+  const tracks = document.querySelectorAll('.mobile-logo-track');
+  if (!tracks.length) return;
+
+  tracks.forEach((track) => {
+    const firstSet = track.querySelector('.mobile-logo-set');
+    if (!firstSet) return;
+
+    const updateLoopDistance = () => {
+      // offsetWidth includes the set's padding, which is intentionally
+      // used to create the gap at the duplicated-set boundary.
+      const distance = firstSet.offsetWidth;
+      track.style.setProperty('--mobile-loop-distance', distance + 'px');
+    };
+
+    updateLoopDistance();
+
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(updateLoopDistance);
+      observer.observe(firstSet);
+    } else {
+      window.addEventListener('resize', updateLoopDistance);
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupMobileLogoLoops);
+} else {
+  setupMobileLogoLoops();
+}

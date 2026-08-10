@@ -1096,10 +1096,13 @@ section{
         overflow:hidden;
     }
 
+    /* The JS sets --mobile-loop-distance to the EXACT width of one logo set.
+       This prevents the duplicated set from ever touching or jumping at the loop. */
     .mobile-logo-track{
         display:flex;
         width:max-content;
         will-change:transform;
+        transform:translate3d(0,0,0);
     }
 
     .mobile-logo-set{
@@ -1107,36 +1110,37 @@ section{
         align-items:center;
         gap:18px;
         flex-shrink:0;
-        /* Keep a consistent gap at the loop boundary between duplicated sets. */
-        padding-right:18px;
-        box-sizing:content-box;
+        box-sizing:border-box;
+        /* This padding is part of the measured loop distance, so the seam
+           always has the same visual spacing as the rest of the row. */
+        padding-right:24px;
     }
 
-    /* First row: LEFT -> RIGHT */
+    /* The animation distance is calculated by JS instead of using -50%.
+       -50% is not reliable when a gap/padding exists between duplicated sets. */
     .mobile-logo-track-right{
         animation:mobileLogoRight 18s linear infinite;
     }
 
-    /* Second row: RIGHT -> LEFT */
     .mobile-logo-track-left{
         animation:mobileLogoLeft 18s linear infinite;
     }
 
     @keyframes mobileLogoRight{
         from{
-            transform:translateX(-50%);
+            transform:translate3d(calc(var(--mobile-loop-distance) * -1),0,0);
         }
         to{
-            transform:translateX(0);
+            transform:translate3d(0,0,0);
         }
     }
 
     @keyframes mobileLogoLeft{
         from{
-            transform:translateX(0);
+            transform:translate3d(0,0,0);
         }
         to{
-            transform:translateX(-50%);
+            transform:translate3d(calc(var(--mobile-loop-distance) * -1),0,0);
         }
     }
 
@@ -1165,7 +1169,7 @@ section{
 
     .mobile-logo-set{
         gap:16px;
-        padding-right:16px;
+        padding-right:24px;
     }
 
     .mobile-logo-carousel .logo-card{
