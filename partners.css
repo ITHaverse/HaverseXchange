@@ -1,0 +1,325 @@
+/* =========================================
+   PARTNERS LANDING PAGE
+========================================= */
+.partners-container{
+    width:min(1180px,92%);
+    margin:0 auto
+}
+
+.partners-hero{
+    position:relative;
+    min-height:560px;
+    display:flex;
+    align-items:center;
+    background:url('images/networking 2.jpg') center/cover no-repeat;
+    color:#fff;overflow:hidden
+}
+
+.partners-hero-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,rgba(7,26,42,.93),rgba(7,26,42,.56),rgba(7,26,42,.22))
+}
+
+.partners-hero-content{
+    position:relative;
+    z-index:1;
+    padding:90px 0;
+    max-width:900px
+}
+
+.partners-eyebrow{
+    margin:0 0 18px;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:3px;
+    color:#d9b27c
+}
+
+.partners-eyebrow-dark{
+    color:#b18451
+}
+
+.partners-hero h1{
+    margin:0 0 24px;
+    font-size:clamp(48px,7vw,82px);
+    line-height:1.02;
+    letter-spacing:-2px
+}
+.partners-hero h1 span,.partners-intro h2 span{
+    color:#d9b27c
+}
+
+.partners-hero p:not(.partners-eyebrow){
+    max-width:720px;
+    margin:0;
+    color:rgba(255,255,255,.88);
+    font-size:19px;
+    line-height:1.8
+}
+
+.partners-hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:34px
+}
+
+.partners-primary-btn,.partners-secondary-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:13px 25px;
+    border-radius:999px;
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:.8px;
+    text-decoration:none;
+    transition:.25s ease
+}
+
+.partners-primary-btn{
+    background:#c99a63;
+    color:#fff;
+    box-shadow:0 8px 20px rgba(0,0,0,.18)
+}
+
+.partners-secondary-btn{
+    border:1px solid rgba(255,255,255,.6);
+    color:#fff;
+    background:rgba(255,255,255,.06)
+}
+
+.partners-primary-btn:hover,.partners-secondary-btn:hover{
+    transform:translateY(-2px)
+}
+
+.partners-intro{
+    padding:105px 0;
+    background:#fff
+}
+
+.partners-intro-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:90px;
+    align-items:end
+}
+
+.partners-intro h2{
+    margin:0;
+    color:#0e3a5a;
+    font-size:clamp(36px,5vw,58px);
+    line-height:1.08;
+    letter-spacing:-1.5px
+}
+
+.partners-intro-grid>div:last-child p{
+    margin:0;
+    color:#5c6268;
+    font-size:17px;
+    line-height:1.9
+}
+
+.partners-network{
+    padding:95px 0 110px;
+    background:#f6f7f8
+}
+
+.partners-section-heading{
+    margin-bottom:48px
+}
+
+.partners-section-heading h2{
+    margin:0;
+    color:#0e3a5a;
+    font-size:clamp(34px,4vw,52px)
+}
+
+.partners-section-heading>p:last-child{
+    max-width:680px;
+    margin:15px 0 0;
+    color:#666;
+    line-height:1.8
+}
+
+.partners-section-heading.centered{
+    text-align:center
+}
+
+.partners-section-heading.centered>p:last-child{
+    margin-left:auto;
+    margin-right:auto
+}
+
+.partners-logo-grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:22px
+}
+
+.partner-logo-card{
+    height:170px;
+    padding:25px;
+    background:#fff;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.07);
+    border:1px solid rgba(14,58,90,.05);
+    transition:.3s ease
+}
+
+.partner-logo-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 38px rgba(0,0,0,.12)
+}
+
+.partner-logo-card img{
+    width:100%;
+    height:100%;
+    object-fit:contain
+}
+
+.partners-value{
+    padding:100px 0;
+    background:#0e3a5a;
+    color:#fff
+}
+
+.partners-value .partners-section-heading h2{
+    color:#fff
+}
+
+.partners-value .partners-section-heading.centered>p:last-child{
+    color:rgba(255,255,255,.72)
+}
+
+.partners-value-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px
+}
+
+.partners-value-grid article{
+    padding:30px 24px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:18px;
+    background:rgba(255,255,255,.04)
+}
+
+.partners-value-grid span{
+    display:block;
+    color:#d9b27c;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:25px
+}
+
+.partners-value-grid h3{
+    font-size:20px;
+    margin:0 0 12px
+}
+
+.partners-value-grid p{
+    margin:0;
+    color:rgba(255,255,255,.68);
+    font-size:14px;
+    line-height:1.7
+}
+
+.partners-cta{
+    position:relative;
+    background:url('images/networking 3.jpg') center/cover no-repeat;
+    color:#fff;
+    text-align:center;
+    overflow:hidden
+}
+
+.partners-cta-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(8,29,45,.84)
+}
+
+.partners-cta-content{
+    position:relative;
+    z-index:1;
+    padding:105px 0
+}
+
+.partners-cta-content h2{
+    max-width:800px;
+    margin:0 auto 18px;
+    font-size:clamp(34px,5vw,58px);
+    line-height:1.08
+}
+
+.partners-cta-content>p:not(.partners-eyebrow){
+    max-width:650px;
+    margin:0 auto;
+    color:rgba(255,255,255,.8);
+    line-height:1.8
+}
+
+.partners-cta-content .partners-hero-actions{
+    justify-content:center
+}
+
+@media(max-width:900px){
+    .partners-intro-grid{
+        grid-template-columns:1fr;
+        gap:30px
+    }
+    .partners-logo-grid{
+        grid-template-columns:repeat(2,1fr)
+    }
+    .partners-value-grid{
+        grid-template-columns:repeat(2,1fr)
+    }
+}
+
+@media(max-width:700px){
+    .partners-hero{
+        min-height:520px
+    }
+    .partners-hero-content{
+        padding:70px 0
+    }
+    .partners-hero h1{
+        letter-spacing:-1px
+    }
+    .partners-hero p:not(.partners-eyebrow){
+        font-size:16px
+    }
+    .partners-intro,.partners-network,.partners-value{
+        padding:75px 0
+    }
+    .partners-logo-grid{
+        grid-template-columns:1fr
+    }
+    .partners-value-grid{
+        grid-template-columns:1fr
+    }
+    .partner-logo-card{
+        height:145px
+    }
+    .partners-cta-content{
+        padding:80px 0
+    }
+}
+
+@media(max-width:480px){
+    .partners-container{
+        width:88%
+    }
+    .partners-hero h1{
+        font-size:43px
+    }
+    .partners-primary-btn,.partners-secondary-btn{
+        width:100%
+    }
+}

@@ -10,9 +10,17 @@
     toggle.setAttribute('aria-expanded', String(open));
   });
 
-  const currentPage = document.body.dataset.page || '';
-  if (currentPage) {
-    const activeLink = document.querySelector(`.main-nav a[href="${currentPage === 'community-centre' ? 'community-centre.html' : 'index.html'}"]`);
+  const currentPage = document.body.dataset.page || 'home';
+  const pageLinks = {
+    home: 'index.html#intro',
+    'community-centre': 'community-centre.html',
+    events: 'events.html',
+    partners: 'partners.html'
+  };
+
+  const activeHref = pageLinks[currentPage];
+  if (activeHref) {
+    const activeLink = document.querySelector(`.main-nav a[href="${activeHref}"]`);
     if (activeLink) activeLink.classList.add('active');
   }
 
