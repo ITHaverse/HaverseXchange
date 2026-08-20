@@ -8,7 +8,7 @@
 
 .partners-hero{
     position:relative;
-    min-height:560px;
+    min-height: 100vh;
     display:flex;
     align-items:center;
     background:url('images/networking 2.jpg') center/cover no-repeat;
