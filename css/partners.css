@@ -11,7 +11,7 @@
     min-height: 100vh;
     display:flex;
     align-items:center;
-    background:url('images/networking 2.jpg') center/cover no-repeat;
+    background:url('../images/event/networking 2.jpg') center/cover no-repeat;
     color:#fff;overflow:hidden
 }
 
@@ -233,7 +233,7 @@
 
 .partners-cta{
     position:relative;
-    background:url('images/networking 3.jpg') center/cover no-repeat;
+    background:url('../images/event/networking 3.jpg') center/cover no-repeat;
     color:#fff;
     text-align:center;
     overflow:hidden

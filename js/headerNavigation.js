@@ -11,17 +11,54 @@
   });
 
   const currentPage = document.body.dataset.page || 'home';
+
+  const pagePrefix = window.location.pathname.includes('/pages/') ? '../' : '';
+
   const pageLinks = {
-    home: 'index.html#intro',
-    'community-centre': 'community-centre.html',
-    events: 'events.html',
-    partners: 'partners.html'
+    home: `${pagePrefix}index.html#intro`,
+    'community-centre': `${pagePrefix}pages/community-centre.html`,
+    events: `${pagePrefix}pages/events.html`,
+    'event-2025': `${pagePrefix}pages/event-2025.html`,
+    'event-2026': `${pagePrefix}pages/event-2026.html`,
+    partners: `${pagePrefix}pages/partners.html`
   };
 
   const activeHref = pageLinks[currentPage];
+
   if (activeHref) {
     const activeLink = document.querySelector(`.main-nav a[href="${activeHref}"]`);
     if (activeLink) activeLink.classList.add('active');
+
+    const dropdown = activeLink?.closest('.nav-dropdown');
+    if (dropdown) {
+      dropdown.classList.add('current');
+      const dropdownToggle = dropdown.querySelector('.nav-dropdown-toggle');
+      if (dropdownToggle) dropdownToggle.classList.add('active');
+    }
+  }
+
+  const dropdown = document.querySelector('.nav-dropdown');
+  const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+
+  if (dropdown && dropdownToggle) {
+    dropdownToggle.addEventListener('click', (event) => {
+      /*
+       * Desktop: keep normal link behaviour so clicking EVENTS opens events.html.
+       * Mobile: first tap opens the submenu; the submenu links open the year pages.
+       */
+      if (window.innerWidth <= 900 && !dropdown.classList.contains('open')) {
+        event.preventDefault();
+        dropdown.classList.add('open');
+        dropdownToggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!dropdown.contains(event.target) && window.innerWidth <= 900) {
+        dropdown.classList.remove('open');
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
   document.querySelectorAll('.main-nav a').forEach(link => {

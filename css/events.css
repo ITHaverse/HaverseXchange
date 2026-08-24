@@ -11,7 +11,7 @@
     min-height: 100vh;
     display:flex;
     align-items:center;
-    background:url('images/background-6.jpg') center/cover no-repeat;
+    background:url('../images/background/background-6.jpg') center/cover no-repeat;
     color:#fff;
     overflow:hidden
 }
@@ -333,7 +333,7 @@
 
 .events-cta{
     position:relative;
-    background:url('images/background-7.jpg') center/cover no-repeat;
+    background:url('../images/background/background-7.jpg') center/cover no-repeat;
     color:#fff;
     text-align:center;
     overflow:hidden

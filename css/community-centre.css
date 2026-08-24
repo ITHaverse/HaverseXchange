@@ -26,7 +26,7 @@
     align-items:center;
     justify-content:center;
     padding:110px 25px;
-    background:url("images/background-6.jpg") center/cover no-repeat;
+    background:url("../images/background/background-6.jpg") center/cover no-repeat;
     overflow:hidden;
 }
 
@@ -366,7 +366,7 @@
 .cc-contact-section{
     position:relative;
     padding:100px 0;
-    background:url("images/background-7.jpg") center/cover no-repeat;
+    background:url("../images/background/background-7.jpg") center/cover no-repeat;
     overflow:hidden;
 }
 
