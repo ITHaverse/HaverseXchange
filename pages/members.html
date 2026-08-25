@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Members | Haverse Xchange</title>
+    <link rel="shortcut icon" type="image/jpg" href="../images/background/HaverseXchange Logo.jpg">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/members.css">
+</head>
+
+<body data-page="members">
+
+    <div id="header"></div>
+
+    <main>
+        <section class="members-directory" id="member-directory">
+            <div class="members-container">
+
+                <div class="members-section-heading">
+                    <p class="members-eyebrow members-eyebrow-dark">MEMBER DIRECTORY</p>
+                    <h2>Connect With Our <span>Network</span></h2>
+                    <p>
+                        Explore our members by industry and learn more about the businesses
+                        connected through Haverse Xchange.
+                    </p>
+                </div>
+
+                <div class="member-filters" role="tablist" aria-label="Member categories">
+                    <button class="member-filter active" type="button" data-category="all" role="tab" aria-selected="true">
+                        ALL MEMBERS
+                    </button>
+                    <button class="member-filter" type="button" data-category="fb" role="tab" aria-selected="false">
+                        F&amp;B
+                    </button>
+                    <button class="member-filter" type="button" data-category="retail" role="tab" aria-selected="false">
+                        RETAIL &amp; E-COMMERCE
+                    </button>
+                    <button class="member-filter" type="button" data-category="entertainment" role="tab" aria-selected="false">
+                        ENTERTAINMENT &amp; RECREATION
+                    </button>
+                    <button class="member-filter" type="button" data-category="real-estate" role="tab" aria-selected="false">
+                        REAL ESTATE
+                    </button>
+                    <button class="member-filter" type="button" data-category="finance" role="tab" aria-selected="false">
+                        FINANCE &amp; BANKING
+                    </button>
+                    <button class="member-filter" type="button" data-category="professional-services" role="tab" aria-selected="false">
+                        PROFESSIONAL SERVICES
+                    </button>
+                </div>
+
+                <div class="member-results-heading">
+                    <h3 id="member-category-title">All Members</h3>
+                    <span id="member-count" aria-live="polite"></span>
+                </div>
+
+                <div id="member-list" class="member-list" aria-live="polite"></div>
+
+                <div id="member-empty" class="member-empty" hidden>
+                    <h3>No members in this category yet</h3>
+                    <p>Member profiles for this industry will be added soon.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="members-cta">
+            <div class="members-container members-cta-content">
+                <p class="members-eyebrow">JOIN THE NETWORK</p>
+                <h2>Be Part of the Haverse Xchange Community</h2>
+                <p>
+                    Interested in becoming a member and connecting with businesses
+                    across the network?
+                </p>
+                <a href="https://www.jotform.com/form/242338493059059"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="members-primary-btn">
+                    JOIN HAVERSE XCHANGE
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/loadLandingPage.js"></script>
+    <script src="../js/members.js"></script>
+</body>
+</html>

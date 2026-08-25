@@ -20,7 +20,8 @@
     events: `${pagePrefix}pages/events.html`,
     'event-2025': `${pagePrefix}pages/event-2025.html`,
     'event-2026': `${pagePrefix}pages/event-2026.html`,
-    partners: `${pagePrefix}pages/partners.html`
+    partners: `${pagePrefix}pages/partners.html`,
+    members: `${pagePrefix}pages/members.html`
   };
 
   const activeHref = pageLinks[currentPage];
