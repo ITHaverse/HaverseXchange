@@ -99,18 +99,15 @@
 
 .member-filters{
     display:flex;
-    flex-wrap:nowrap !important;
+    flex-wrap:wrap;
     justify-content:center;
     align-items:center;
-    gap:8px;
-    width:max-content;
-    min-width:100%;
-    margin-bottom:48px;
-    overflow-x:visible;
-    overflow-y:hidden;
+    gap:10px;
+    width:100%;
+    min-width:0;
+    margin:0 auto 48px;
     padding:4px 4px 14px;
-    scrollbar-width:none;
-    -webkit-overflow-scrolling:touch;
+    overflow:visible;
 }
 
 .member-filters::-webkit-scrollbar{
@@ -398,10 +395,13 @@
 
     .member-filters{
         justify-content:flex-start;
+        flex-wrap:nowrap;
+        width:max-content;
         min-width:max-content;
         margin-right:-6%;
         padding-right:6%;
         overflow-x:auto;
+        overflow-y:hidden;
     }
 
     .member-filter{

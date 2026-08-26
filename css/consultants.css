@@ -1,34 +1,36 @@
 /* =========================================
-   PARTNERS LANDING PAGE
+   CONSULTANTS PAGE
 ========================================= */
-.partners-container{
+
+.consultants-container{
     width:min(1180px,92%);
     margin:0 auto
 }
 
-.partners-hero{
+.consultants-hero{
     position:relative;
-    min-height: 100vh;
+    min-height:100vh;
     display:flex;
     align-items:center;
     background:url('../images/event/networking 2.jpg') center/cover no-repeat;
-    color:#fff;overflow:hidden
+    color:#fff;
+    overflow:hidden
 }
 
-.partners-hero-overlay{
+.consultants-hero-overlay{
     position:absolute;
     inset:0;
     background:linear-gradient(90deg,rgba(7,26,42,.93),rgba(7,26,42,.56),rgba(7,26,42,.22))
 }
 
-.partners-hero-content{
+.consultants-hero-content{
     position:relative;
     z-index:1;
     padding:90px 0;
     max-width:900px
 }
 
-.partners-eyebrow{
+.consultants-eyebrow{
     margin:0 0 18px;
     font-size:13px;
     font-weight:800;
@@ -36,21 +38,23 @@
     color:#d9b27c
 }
 
-.partners-eyebrow-dark{
+.consultants-eyebrow-dark{
     color:#b18451
 }
 
-.partners-hero h1{
+.consultants-hero h1{
     margin:0 0 24px;
     font-size:clamp(48px,7vw,82px);
     line-height:1.02;
     letter-spacing:-2px
 }
-.partners-hero h1 span,.partners-intro h2 span{
+
+.consultants-hero h1 span,
+.consultants-intro h2 span{
     color:#d9b27c
 }
 
-.partners-hero p:not(.partners-eyebrow){
+.consultants-hero p:not(.consultants-eyebrow){
     max-width:720px;
     margin:0;
     color:rgba(255,255,255,.88);
@@ -58,14 +62,15 @@
     line-height:1.8
 }
 
-.partners-hero-actions{
+.consultants-hero-actions{
     display:flex;
     gap:14px;
     flex-wrap:wrap;
     margin-top:34px
 }
 
-.partners-primary-btn,.partners-secondary-btn{
+.consultants-primary-btn,
+.consultants-secondary-btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
@@ -79,35 +84,36 @@
     transition:.25s ease
 }
 
-.partners-primary-btn{
+.consultants-primary-btn{
     background:#c99a63;
     color:#fff;
     box-shadow:0 8px 20px rgba(0,0,0,.18)
 }
 
-.partners-secondary-btn{
+.consultants-secondary-btn{
     border:1px solid rgba(255,255,255,.6);
     color:#fff;
     background:rgba(255,255,255,.06)
 }
 
-.partners-primary-btn:hover,.partners-secondary-btn:hover{
+.consultants-primary-btn:hover,
+.consultants-secondary-btn:hover{
     transform:translateY(-2px)
 }
 
-.partners-intro{
+.consultants-intro{
     padding:105px 0;
     background:#fff
 }
 
-.partners-intro-grid{
+.consultants-intro-grid{
     display:grid;
     grid-template-columns:1.05fr .95fr;
     gap:90px;
     align-items:end
 }
 
-.partners-intro h2{
+.consultants-intro h2{
     margin:0;
     color:#0e3a5a;
     font-size:clamp(36px,5vw,58px);
@@ -115,102 +121,152 @@
     letter-spacing:-1.5px
 }
 
-.partners-intro-grid>div:last-child p{
+.consultants-intro-grid>div:last-child p{
     margin:0;
     color:#5c6268;
     font-size:17px;
     line-height:1.9
 }
 
-.partners-network{
+.consultants-services{
     padding:95px 0 110px;
     background:#f6f7f8
 }
 
-.partners-section-heading{
+.consultants-section-heading{
     margin-bottom:48px
 }
 
-.partners-section-heading h2{
+.consultants-section-heading h2{
     margin:0;
     color:#0e3a5a;
-    font-size:clamp(34px,4vw,52px)
+    font-size:clamp(34px,4vw,52px);
+    line-height:1.1
 }
 
-.partners-section-heading>p:last-child{
-    max-width:680px;
+.consultants-section-heading>p:last-child{
+    max-width:720px;
     margin:15px 0 0;
     color:#666;
     line-height:1.8
 }
 
-.partners-section-heading.centered{
+.consultants-section-heading.centered{
     text-align:center
 }
 
-.partners-section-heading.centered>p:last-child{
+.consultants-section-heading.centered>p:last-child{
     margin-left:auto;
     margin-right:auto
 }
 
-.partners-logo-grid{
+.consultant-service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:20px
+}
+
+.consultant-service-card{
+    min-height:205px;
+    padding:30px 26px;
+    background:#fff;
+    border:1px solid rgba(14,58,90,.06);
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+    transition:.3s ease
+}
+
+.consultant-service-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 38px rgba(0,0,0,.11)
+}
+
+.consultant-service-card span{
+    display:block;
+    margin-bottom:22px;
+    color:#b18451;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px
+}
+
+.consultant-service-card h3{
+    margin:0 0 12px;
+    color:#0e3a5a;
+    font-size:21px;
+    line-height:1.25
+}
+
+.consultant-service-card p{
+    margin:0;
+    color:#666;
+    font-size:14px;
+    line-height:1.7
+}
+
+.consultants-network{
+    padding:95px 0 110px;
+    background:#fff
+}
+
+.consultants-logo-grid{
     display:grid;
     grid-template-columns:repeat(4,minmax(0,1fr));
     gap:22px
 }
 
-.partner-logo-card{
+.consultant-logo-card{
     height:170px;
     padding:25px;
-    background:#fff;
+    background:#fafafa;
     border-radius:18px;
     display:flex;
     align-items:center;
     justify-content:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.07);
-    border:1px solid rgba(14,58,90,.05);
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+    border:1px solid rgba(14,58,90,.06);
     transition:.3s ease
 }
 
-.partner-logo-card:hover{
+.consultant-logo-card:hover{
     transform:translateY(-5px);
     box-shadow:0 18px 38px rgba(0,0,0,.12)
 }
 
-.partner-logo-card img{
+.consultant-logo-card img{
     width:100%;
     height:100%;
     object-fit:contain
 }
 
-.partners-value{
+.consultants-value{
     padding:100px 0;
     background:#0e3a5a;
     color:#fff
 }
 
-.partners-value .partners-section-heading h2{
+.consultants-value .consultants-section-heading h2{
     color:#fff
 }
 
-.partners-value .partners-section-heading.centered>p:last-child{
+.consultants-value .consultants-section-heading.centered>p:last-child{
     color:rgba(255,255,255,.72)
 }
 
-.partners-value-grid{
+.consultants-value-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:18px
 }
 
-.partners-value-grid article{
+.consultants-value-grid article{
     padding:30px 24px;
     border:1px solid rgba(255,255,255,.14);
     border-radius:18px;
     background:rgba(255,255,255,.04)
 }
 
-.partners-value-grid span{
+.consultants-value-grid span{
     display:block;
     color:#d9b27c;
     font-size:13px;
@@ -219,19 +275,19 @@
     margin-bottom:25px
 }
 
-.partners-value-grid h3{
+.consultants-value-grid h3{
     font-size:20px;
     margin:0 0 12px
 }
 
-.partners-value-grid p{
+.consultants-value-grid p{
     margin:0;
     color:rgba(255,255,255,.68);
     font-size:14px;
     line-height:1.7
 }
 
-.partners-cta{
+.consultants-cta{
     position:relative;
     background:url('../images/event/networking 3.jpg') center/cover no-repeat;
     color:#fff;
@@ -239,87 +295,111 @@
     overflow:hidden
 }
 
-.partners-cta-overlay{
+.consultants-cta-overlay{
     position:absolute;
     inset:0;
     background:rgba(8,29,45,.84)
 }
 
-.partners-cta-content{
+.consultants-cta-content{
     position:relative;
     z-index:1;
     padding:105px 0
 }
 
-.partners-cta-content h2{
+.consultants-cta-content h2{
     max-width:800px;
     margin:0 auto 18px;
     font-size:clamp(34px,5vw,58px);
     line-height:1.08
 }
 
-.partners-cta-content>p:not(.partners-eyebrow){
-    max-width:650px;
+.consultants-cta-content>p:not(.consultants-eyebrow){
+    max-width:680px;
     margin:0 auto;
     color:rgba(255,255,255,.8);
     line-height:1.8
 }
 
-.partners-cta-content .partners-hero-actions{
+.consultants-cta-content .consultants-hero-actions{
     justify-content:center
 }
 
 @media(max-width:900px){
-    .partners-intro-grid{
+    .consultants-intro-grid{
         grid-template-columns:1fr;
         gap:30px
     }
-    .partners-logo-grid{
+
+    .consultant-service-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr))
+    }
+
+    .consultants-logo-grid{
         grid-template-columns:repeat(2,1fr)
     }
-    .partners-value-grid{
+
+    .consultants-value-grid{
         grid-template-columns:repeat(2,1fr)
     }
 }
 
 @media(max-width:700px){
-    .partners-hero{
+    .consultants-hero{
         min-height:520px
     }
-    .partners-hero-content{
+
+    .consultants-hero-content{
         padding:70px 0
     }
-    .partners-hero h1{
+
+    .consultants-hero h1{
         letter-spacing:-1px
     }
-    .partners-hero p:not(.partners-eyebrow){
+
+    .consultants-hero p:not(.consultants-eyebrow){
         font-size:16px
     }
-    .partners-intro,.partners-network,.partners-value{
+
+    .consultants-intro,
+    .consultants-services,
+    .consultants-network,
+    .consultants-value{
         padding:75px 0
     }
-    .partners-logo-grid{
+
+    .consultant-service-grid{
         grid-template-columns:1fr
     }
-    .partners-value-grid{
+
+    .consultants-logo-grid{
         grid-template-columns:1fr
     }
-    .partner-logo-card{
+
+    .consultants-value-grid{
+        grid-template-columns:1fr
+    }
+
+    .consultant-logo-card{
         height:145px
     }
-    .partners-cta-content{
+
+    .consultants-cta-content{
         padding:80px 0
     }
 }
 
 @media(max-width:480px){
-    .partners-container{
+    .consultants-container{
         width:88%
     }
-    .partners-hero h1{
+
+    .consultants-hero h1{
         font-size:43px
     }
-    .partners-primary-btn,.partners-secondary-btn{
+
+    .consultants-primary-btn,
+    .consultants-secondary-btn{
         width:100%
     }
 }

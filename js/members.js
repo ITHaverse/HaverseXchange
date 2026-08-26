@@ -2,78 +2,80 @@
  * Haverse Xchange Members
  *
  * DEMO DATA:
- * The entries below are placeholders used to demonstrate the member
- * directory and category filtering. Replace the names/descriptions/images
- * with the actual member information when it is available.
+ * The entries below remain placeholders. Replace the names, descriptions,
+ * logos and service categories with the approved member information.
  */
 
 const members = [
     {
         name: "Demo Member Company 01",
-        category: "fb",
-        categoryLabel: "F&B",
-        description: "A member business operating within the food and beverage sector. Replace this introduction with the company's approved profile description.",
+        category: "marketing-branding",
+        categoryLabel: "Marketing & Branding",
+        description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 1.jpg"
     },
     {
         name: "Demo Member Company 02",
-        category: "fb",
-        categoryLabel: "F&B",
-        description: "A member business serving customers through food, beverage and hospitality-related services. Replace this text with the company's approved introduction.",
+        category: "financial-advisory",
+        categoryLabel: "Financial Advisory",
+        description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 2.jpg"
     },
     {
         name: "Demo Member Company 03",
-        category: "retail",
-        categoryLabel: "Retail & E-commerce",
-        description: "A member business operating in retail and e-commerce. Replace this introduction with the company's approved profile description.",
+        category: "interior-architecture",
+        categoryLabel: "Interior Design & Architecture",
+        description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 3.jpg"
     },
     {
         name: "Demo Member Company 04",
-        category: "entertainment",
-        categoryLabel: "Entertainment & Recreation",
-        description: "A member business within entertainment and recreation. Replace this introduction with the company's approved profile description.",
+        category: "legal-advisory",
+        categoryLabel: "Legal Advisory",
+        description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 4.jpg"
     },
     {
         name: "Demo Member Company 05",
-        category: "real-estate",
-        categoryLabel: "Real Estate",
-        description: "A member business connected to the real estate ecosystem. Replace this introduction with the company's approved profile description.",
+        category: "culinary-consulting",
+        categoryLabel: "Culinary Consulting",
+        description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 5.png"
     },
     {
         name: "Demo Member Company 06",
-        category: "real-estate",
-        categoryLabel: "Real Estate",
-        description: "A member business operating in the property and real estate sector. Replace this introduction with the company's approved profile description.",
+        category: "it-consulting",
+        categoryLabel: "IT Consulting",
+        description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 6.jpg"
     },
     {
         name: "Demo Member Company 07",
-        category: "finance",
-        categoryLabel: "Finance & Banking",
-        description: "A member business operating within finance and banking. Replace this introduction with the company's approved profile description.",
+        category: "business-retail",
+        categoryLabel: "Business & Retail Management",
+        description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 7.png"
     },
     {
         name: "Demo Member Company 08",
-        category: "professional-services",
-        categoryLabel: "Professional Services",
-        description: "A member business providing professional services to the wider business ecosystem. Replace this introduction with the company's approved profile description.",
+        category: "business-licensing",
+        categoryLabel: "Business Licensing",
+        description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 8.jpg"
     }
 ];
 
 const categoryTitles = {
     all: "All Members",
-    fb: "F&B Members",
-    retail: "Retail & E-commerce Members",
-    entertainment: "Entertainment & Recreation Members",
-    "real-estate": "Real Estate Members",
-    finance: "Finance & Banking Members",
-    "professional-services": "Professional Services Members"
+    "marketing-branding": "Marketing & Branding Members",
+    "financial-advisory": "Financial Advisory Members",
+    "interior-architecture": "Interior Design & Architecture Members",
+    "legal-advisory": "Legal Advisory Members",
+    "culinary-consulting": "Culinary Consulting Members",
+    "it-consulting": "IT Consulting Members",
+    "business-retail": "Business & Retail Management Members",
+    "business-licensing": "Business Licensing Members",
+    "hr-consulting": "HR Consulting Members"
 };
 
 function renderMembers(category = "all") {
