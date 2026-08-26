@@ -64,9 +64,24 @@
 
   document.querySelectorAll('.main-nav a').forEach(link => {
     link.addEventListener('click', () => {
+      /*
+       * On mobile, the first tap on EVENTS opens its submenu.
+       * Keep the navigation open so EVENT 2026 / EVENT 2025 remain
+       * clickable. A second tap on EVENTS follows events.html normally.
+       */
+      if (
+        window.innerWidth <= 900 &&
+        link === dropdownToggle &&
+        dropdown.classList.contains('open')
+      ) {
+        return;
+      }
+
       nav.classList.remove('open');
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
+      dropdown?.classList.remove('open');
+      dropdownToggle?.setAttribute('aria-expanded', 'false');
     });
   });
 })();
