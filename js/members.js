@@ -9,8 +9,8 @@
 const members = [
     {
         name: "Demo Member Company 01",
-        category: "marketing-branding",
-        categoryLabel: "Marketing & Branding",
+        category: "legal-advisory",
+        categoryLabel: "Legal Advisory",
         description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 1.jpg"
     },
@@ -30,8 +30,8 @@ const members = [
     },
     {
         name: "Demo Member Company 04",
-        category: "legal-advisory",
-        categoryLabel: "Legal Advisory",
+        category: "it-consulting",
+        categoryLabel: "IT Consulting",
         description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 4.jpg"
     },
@@ -44,8 +44,8 @@ const members = [
     },
     {
         name: "Demo Member Company 06",
-        category: "it-consulting",
-        categoryLabel: "IT Consulting",
+        category: "marketing-branding",
+        categoryLabel: "Marketing & Branding",
         description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 6.jpg"
     },
@@ -58,7 +58,7 @@ const members = [
     },
     {
         name: "Demo Member Company 08",
-        category: "business-licensing",
+        category: "business-licensing", 
         categoryLabel: "Business Licensing",
         description: "Demo member profile. Replace this introduction with the company's approved profile description.",
         logo: "../images/consultant logo/company 8.jpg"
