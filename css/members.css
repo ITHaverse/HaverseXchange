@@ -396,12 +396,17 @@
     .member-filters{
         justify-content:flex-start;
         flex-wrap:nowrap;
-        width:max-content;
-        min-width:max-content;
-        margin-right:-6%;
-        padding-right:6%;
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        margin-right:0;
+        padding-right:4px;
         overflow-x:auto;
         overflow-y:hidden;
+        overscroll-behavior-x:contain;
+        -webkit-overflow-scrolling:touch;
+        touch-action:pan-x;
+        scrollbar-width:none;
     }
 
     .member-filter{
