@@ -20,7 +20,7 @@
     events: `${pagePrefix}pages/events.html`,
     'event-2025': `${pagePrefix}pages/event-2025.html`,
     'event-2026': `${pagePrefix}pages/event-2026.html`,
-    partners: `${pagePrefix}pages/consultants.html`,
+    consultants: `${pagePrefix}pages/consultants.html`,
     members: `${pagePrefix}pages/members.html`
   };
 
