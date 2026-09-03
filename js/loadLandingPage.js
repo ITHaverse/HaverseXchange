@@ -40,3 +40,5 @@ Promise.all([
     headerScript.src = "../js/headerNavigation.js";
     document.body.appendChild(headerScript);
 }).catch(error => console.error("Failed to load landing page components:", error));
+
+

@@ -30,3 +30,4 @@ Promise.all([
     document.body.appendChild(eventScript);
 
 });
+

@@ -40,3 +40,4 @@ loadComponent("header", "../components/header.html")
         document.body.appendChild(headerScript);
     })
     .catch(error => console.error("Failed to load header:", error));
+
