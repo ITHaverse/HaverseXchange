@@ -743,6 +743,13 @@ section{
 
 }
 
+.activity-page-link{
+    grid-column:1 / -1;
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+}
+
 .activity-card{
 
     background:#fff;
