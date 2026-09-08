@@ -7,246 +7,156 @@ const eventTrack = document.querySelector(".upcoming-track");
 const eventSlides = document.querySelectorAll(".event-slide");
 const eventIndicators = document.querySelectorAll(".indicator");
 
-if (eventTrack && eventSlides.length > 0) {
+if (slider && eventTrack && eventSlides.length > 0) {
 
     let currentSlide = 0;
     let currentTranslate = 0;
     let previousTranslate = 0;
-    let animationID = null;
-    let autoPlay;
-
-    function updateSlider(animate = true) {
-
-        const slideWidth = slider.offsetWidth;
-
-        currentTranslate = -(currentSlide * slideWidth);
-        previousTranslate = currentTranslate;
-
-        if(animate){
-
-            eventTrack.style.transition =
-                "transform .55s cubic-bezier(.22,.61,.36,1)";
-
-        }else{
-
-            eventTrack.style.transition = "none";
-
-        }
-
-        eventTrack.style.transform =
-            `translate3d(${currentTranslate}px,0,0)`;
-
-        updateIndicators();
-    }
-
-    function setTranslate(x){
-
-    currentTranslate = x;
-
-    eventTrack.style.transform =
-        `translate3d(${x}px,0,0)`;
-
-    }
-
-    function updateIndicators() {
-
-    eventIndicators.forEach((dot, index) => {
-
-        if (index === currentSlide) {
-
-            dot.classList.add("active");
-
-        } else {
-
-            dot.classList.remove("active");
-
-        }
-
-    });
-
-    }
-
-    function nextSlide() {
-
-        currentSlide++;
-
-        if (currentSlide >= eventSlides.length) {
-
-            currentSlide = 0;
-
-        }
-
-        updateSlider();
-
-    }
-
-    function previousSlide() {
-
-        currentSlide--;
-
-        if (currentSlide < 0) {
-
-            currentSlide = eventSlides.length - 1;
-
-        }
-
-        updateSlider();
-
-    }
-
-    function startAutoPlay() {
-
-        autoPlay = setInterval(nextSlide, 7000);
-
-    }
-
-    function stopAutoPlay() {
-
-        clearInterval(autoPlay);
-
-    }
-
-    eventIndicators.forEach((dot, index) => {
-
-        dot.addEventListener("click", () => {
-
-            currentSlide = index;
-
-            updateSlider();
-
-            stopAutoPlay();
-
-            startAutoPlay();
-
-        });
-
-    });
-
-/* =====================
-   DRAG / SWIPE
-===================== */
+    let autoPlay = null;
     let isDragging = false;
     let startX = 0;
     let currentX = 0;
 
     const swipeThreshold = 60;
+    const autoPlayDelay = 7000;
 
-    slider.addEventListener("pointermove",(e)=>{
+    function updateIndicators() {
+        eventIndicators.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentSlide);
+        });
+    }
 
-        if(!isDragging) return;
+    function updateSlider(animate = true) {
+        const slideWidth = slider.offsetWidth;
 
-        currentX = e.clientX;
+        currentTranslate = -(currentSlide * slideWidth);
+        previousTranslate = currentTranslate;
 
-        const delta = currentX - startX;
+        eventTrack.style.transition = animate
+            ? "transform .55s cubic-bezier(.22,.61,.36,1)"
+            : "none";
 
-        setTranslate(previousTranslate + delta);
+        eventTrack.style.transform =
+            `translate3d(${currentTranslate}px, 0, 0)`;
 
-    });
-    
-    slider.addEventListener("pointerdown", (e) => {
+        updateIndicators();
+    }
 
-        // Allow links and buttons inside the event card
-        // to work normally without triggering carousel drag
-        if (e.target.closest("a, button")) {
-            return;
+    function setTranslate(x) {
+        currentTranslate = x;
+        eventTrack.style.transition = "none";
+        eventTrack.style.transform =
+            `translate3d(${x}px, 0, 0)`;
+    }
+
+    function goToSlide(index) {
+        currentSlide = (index + eventSlides.length) % eventSlides.length;
+        updateSlider(true);
+    }
+
+    function nextSlide() {
+        goToSlide(currentSlide + 1);
+    }
+
+    function previousSlide() {
+        goToSlide(currentSlide - 1);
+    }
+
+    function startAutoPlay() {
+        stopAutoPlay();
+        autoPlay = setInterval(nextSlide, autoPlayDelay);
+    }
+
+    function stopAutoPlay() {
+        if (autoPlay !== null) {
+            clearInterval(autoPlay);
+            autoPlay = null;
         }
+    }
+
+    /* =====================
+       DOT INDICATORS
+    ====================== */
+    eventIndicators.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            goToSlide(index);
+            startAutoPlay();
+        });
+    });
+
+    /* =====================
+       DRAG / SWIPE
+    ====================== */
+    slider.addEventListener("pointerdown", (e) => {
+        // Allow links and buttons inside the event card to work normally.
+        if (e.target.closest("a, button")) return;
 
         isDragging = true;
-
         startX = e.clientX;
         currentX = e.clientX;
-
         previousTranslate = currentTranslate;
 
         stopAutoPlay();
-
         slider.setPointerCapture(e.pointerId);
-
         eventTrack.classList.add("dragging");
-
     });
 
-    function finishDrag(e){
-    
-    if (!isDragging) return;
+    slider.addEventListener("pointermove", (e) => {
+        if (!isDragging) return;
 
-    isDragging = false;
+        currentX = e.clientX;
+        const delta = currentX - startX;
+        setTranslate(previousTranslate + delta);
+    });
 
-    slider.releasePointerCapture(e.pointerId);
+    function finishDrag(e) {
+        if (!isDragging) return;
 
-    eventTrack.classList.remove("dragging");
-    
-    const distance = currentX - startX;
+        isDragging = false;
 
-    if(distance < -swipeThreshold){
+        if (slider.hasPointerCapture(e.pointerId)) {
+            slider.releasePointerCapture(e.pointerId);
+        }
 
-        currentSlide++;
+        eventTrack.classList.remove("dragging");
 
-    }
-    else if(distance > swipeThreshold){
+        const distance = currentX - startX;
 
-        currentSlide--;
+        if (distance < -swipeThreshold) {
+            currentSlide++;
+        } else if (distance > swipeThreshold) {
+            currentSlide--;
+        }
 
-    }
-
-    if(currentSlide < 0){
-
-        currentSlide = eventSlides.length - 1;
-
-    }
-
-    if(currentSlide >= eventSlides.length){
-
-        currentSlide = 0;
-
-    }
-
-    updateSlider(true);
+        currentSlide = (currentSlide + eventSlides.length) % eventSlides.length;
+        updateSlider(true);
+        startAutoPlay();
     }
 
     slider.addEventListener("pointerup", finishDrag);
-
     slider.addEventListener("pointercancel", finishDrag);
-
-    slider.addEventListener("pointerleave", (e)=>{
-
-        if(isDragging){
-
-            finishDrag(e);
-
-        }
-
-    });
-
-    window.addEventListener("resize", () => {
-
-    updateSlider();
-
-    });
 
     /* =====================
        KEYBOARD
     ====================== */
-
-    document.addEventListener("keydown", e => {
-
+    document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight") {
-
             nextSlide();
-
-        }
-
-        if (e.key === "ArrowLeft") {
-
+            startAutoPlay();
+        } else if (e.key === "ArrowLeft") {
             previousSlide();
-
+            startAutoPlay();
         }
-
     });
 
-    updateSlider();
+    /* =====================
+       RESIZE
+    ====================== */
+    window.addEventListener("resize", () => {
+        updateSlider(false);
+    });
 
+    // Initial state.
+    updateSlider(false);
     startAutoPlay();
 }
-
-

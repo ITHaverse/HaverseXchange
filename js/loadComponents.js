@@ -1,25 +1,27 @@
 async function loadComponent(id, file) {
-    const response = await fetch(file);
-    const html = await response.text();
+    const element = document.getElementById(id);
+    if (!element) return;
 
-    document.getElementById(id).innerHTML = html;
+    const response = await fetch(file);
+    if (!response.ok) {
+        throw new Error(`Unable to load ${file} (${response.status})`);
+    }
+
+    element.innerHTML = await response.text();
 }
 
 Promise.all([
     loadComponent("header", "components/header.html"),
     loadComponent("intro", "components/intro.html"),
     loadComponent("upcoming-events", "components/upcoming-events.html"),
-    loadComponent("activities", "components/activities.html"),
     loadComponent("joined-companies", "components/joined-companies.html"),
     loadComponent("footer", "components/footer.html")
 ]).then(() => {
 
-    // Load feature scripts AFTER HTML is loaded
-
+    // Load feature scripts only after their HTML components are ready.
     const headerScript = document.createElement("script");
     headerScript.src = "js/headerNavigation.js";
     document.body.appendChild(headerScript);
-
 
     const logoScript = document.createElement("script");
     logoScript.src = "js/logoCarousel.js";
@@ -29,5 +31,6 @@ Promise.all([
     eventScript.src = "js/upcomingEvents.js";
     document.body.appendChild(eventScript);
 
+}).catch(error => {
+    console.error("Failed to load homepage components:", error);
 });
-
