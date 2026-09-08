@@ -275,6 +275,42 @@
     padding:11px 18px
 }
 
+/* ==============================
+   EVENT YEAR NAVIGATION
+============================== */
+
+.events-year-navigation{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:70px
+}
+
+.events-year-navigation a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:140px;
+    min-height:46px;
+    padding:11px 22px;
+    border-radius:999px;
+    border:1px solid #c99a63;
+    color:#a87845;
+    background:#fff;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.8px;
+    text-decoration:none;
+    transition:.25s ease
+}
+
+.events-year-navigation a:hover{
+    background:#c99a63;
+    color:#fff;
+    transform:translateY(-2px)
+}
+
 .events-benefits{
     padding:100px 0;
     background:#0e3a5a;
