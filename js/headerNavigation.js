@@ -76,7 +76,7 @@
       ) {
         return;
       }
-
+      
       nav.classList.remove('open');
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
