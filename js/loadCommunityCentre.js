@@ -19,6 +19,17 @@ function normalizeLocalComponentPaths(container) {
 
         el.setAttribute(attr, `../${value}`);
     });
+
+    // The shared slider uses inline CSS background-image URLs. Because this page
+    // is nested under /pages/, those URLs must be adjusted to the site root.
+    container.querySelectorAll('[style]').forEach((el) => {
+        const style = el.getAttribute('style');
+        if (!style) return;
+        el.setAttribute(
+            'style',
+            style.replace(/url\((['"]?)(images\/[^)'"]+)\1\)/g, 'url($1../$2$1)')
+        );
+    });
 }
 
 async function loadComponent(id, file) {

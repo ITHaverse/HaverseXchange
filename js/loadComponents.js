@@ -13,7 +13,6 @@ async function loadComponent(id, file) {
 Promise.all([
     loadComponent("header", "components/header.html"),
     loadComponent("site-slider", "components/site-slider.html"),
-    loadComponent("intro", "components/intro.html"),
     loadComponent("upcoming-events", "components/upcoming-events.html"),
     loadComponent("joined-companies", "components/joined-companies.html"),
     loadComponent("footer", "components/footer.html")
