@@ -1969,3 +1969,145 @@ body{
 }
 
 
+
+
+/* =========================================
+   SHARED STICKY HEADER + TOP SLIDER
+========================================= */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+#header {
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    width: 100%; 
+}
+
+#header .site-header { 
+    position: relative; 
+    top: auto; 
+}
+
+#site-slider { 
+    position: relative;
+     z-index: 1; 
+    }
+
+.site-slider {
+    position: relative;
+    width: 100%;
+    height: clamp(260px, 38vw, 560px);
+    min-height: 260px;
+    overflow: hidden;
+    background: #0e3a5a;
+    isolation: isolate;
+}
+.site-slider-track, .site-slide { 
+    position: absolute; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+}
+
+.site-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.025);
+    transition: opacity .8s ease, transform 5.2s ease, visibility .8s;
+}
+.site-slide.is-active { 
+    opacity: 1; 
+    visibility: visible; 
+    transform: scale(1); 
+    z-index: 1; 
+}
+
+.site-slide-shade { 
+    position: absolute; 
+    inset: 0; 
+    background: linear-gradient(90deg, rgba(3,22,38,.72), rgba(3,22,38,.22)); 
+}
+
+.site-slide-caption {
+     position: relative; 
+     z-index: 2; 
+     width: min(1100px, 82%); 
+     margin: 0 auto; 
+     color: #fff; 
+     text-align: left; 
+     text-shadow: 0 2px 18px rgba(0,0,0,.35); 
+}
+
+.site-slide-caption p { 
+    margin: 0 0 12px; 
+    color: #e1bd84; 
+    font-size: 13px; 
+    font-weight: 800; 
+    letter-spacing: 3px; 
+}
+
+.site-slide-caption h1 { 
+    max-width: 850px; 
+    margin: 0 0 12px; 
+    color: #fff; 
+    font-size: clamp(30px, 4.2vw, 58px); 
+    line-height: 1.12; 
+}
+
+.site-slide-caption span { 
+    display: block; 
+    color: #f4f4f4; 
+    font-size: clamp(14px, 1.5vw, 19px); 
+}
+
+.site-slider { 
+    cursor: grab; 
+    touch-action: pan-y; 
+    user-select: none; 
+}
+
+.site-slider.is-dragging { 
+    cursor: grabbing; 
+}
+
+@media (max-width: 768px) {
+  .site-slider { 
+    height: 300px; 
+    min-height: 300px; 
+    }
+
+  .site-slide-caption { 
+    width: calc(100% - 84px); 
+    }
+
+  .site-slide-caption p { 
+    font-size: 11px; 
+    letter-spacing: 2px; 
+    }
+
+  .site-slide-caption h1 { 
+    font-size: clamp(27px, 7vw, 38px); 
+    }
+
+  .site-slide-caption span { 
+    font-size: 14px; 
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-slide { 
+    transition: opacity .2s ease; 
+    transform: none; 
+    }
+}

@@ -19,6 +19,12 @@ function normalizeLocalComponentPaths(container) {
 
         el.setAttribute(attr, `../${value}`);
     });
+    // Shared components may also contain relative CSS background-image URLs.
+    container.querySelectorAll('[style]').forEach((el) => {
+        const style = el.getAttribute('style');
+        if (!style) return;
+        el.setAttribute('style', style.replace(/url\((['"]?)(images\/[^)'"]+)\1\)/g, 'url($1../$2$1)'));
+    });
 }
 
 async function loadComponent(id, file) {
@@ -34,8 +40,13 @@ async function loadComponent(id, file) {
 
 Promise.all([
     loadComponent("header", "../components/header.html"),
+    loadComponent("site-slider", "../components/site-slider.html"),
     loadComponent("footer", "../components/footer.html")
 ]).then(() => {
+    const sliderScript = document.createElement("script");
+    sliderScript.src = "../js/siteSlider.js";
+    document.body.appendChild(sliderScript);
+
     const headerScript = document.createElement("script");
     headerScript.src = "../js/headerNavigation.js";
     document.body.appendChild(headerScript);

@@ -33,11 +33,16 @@ async function loadComponent(id, file) {
     normalizeLocalComponentPaths(element);
 }
 
-loadComponent("header", "../components/header.html")
-    .then(() => {
-        const headerScript = document.createElement("script");
-        headerScript.src = "../js/headerNavigation.js";
-        document.body.appendChild(headerScript);
-    })
-    .catch(error => console.error("Failed to load header:", error));
+Promise.all([
+    loadComponent("header", "../components/header.html"),
+    loadComponent("site-slider", "../components/site-slider.html")
+]).then(() => {
+    const headerScript = document.createElement("script");
+    headerScript.src = "../js/headerNavigation.js";
+    document.body.appendChild(headerScript);
+
+    const sliderScript = document.createElement("script");
+    sliderScript.src = "../js/siteSlider.js";
+    document.body.appendChild(sliderScript);
+}).catch(error => console.error("Failed to load Community Centre components:", error));
 

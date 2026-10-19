@@ -12,6 +12,7 @@ async function loadComponent(id, file) {
 
 Promise.all([
     loadComponent("header", "components/header.html"),
+    loadComponent("site-slider", "components/site-slider.html"),
     loadComponent("intro", "components/intro.html"),
     loadComponent("upcoming-events", "components/upcoming-events.html"),
     loadComponent("joined-companies", "components/joined-companies.html"),
@@ -19,6 +20,10 @@ Promise.all([
 ]).then(() => {
 
     // Load feature scripts only after their HTML components are ready.
+    const sliderScript = document.createElement("script");
+    sliderScript.src = "js/siteSlider.js";
+    document.body.appendChild(sliderScript);
+
     const headerScript = document.createElement("script");
     headerScript.src = "js/headerNavigation.js";
     document.body.appendChild(headerScript);
