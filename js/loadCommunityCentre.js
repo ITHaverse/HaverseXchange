@@ -46,7 +46,8 @@ async function loadComponent(id, file) {
 
 Promise.all([
     loadComponent("header", "../components/header.html"),
-    loadComponent("site-slider", "../components/site-slider.html")
+    loadComponent("site-slider", "../components/site-slider.html"),
+    loadComponent("footer", "../components/footer.html")
 ]).then(() => {
     const headerScript = document.createElement("script");
     headerScript.src = "../js/headerNavigation.js";

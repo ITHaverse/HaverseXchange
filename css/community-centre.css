@@ -102,6 +102,7 @@
 .cc-light-btn{
     background:#fff;
     color:#0e3a5a;
+    border:1px solid #0e3a5a;
 }
 
 .cc-light-btn:hover{
@@ -366,32 +367,32 @@
 .cc-contact-section{
     position:relative;
     padding:100px 0;
-    background:url("../images/background/background-7.jpg") center/cover no-repeat;
+    background:#fff;
     overflow:hidden;
 }
 
 .cc-contact-overlay{
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,.72);
+    background:transparent;
 }
 
 .cc-contact-content{
     position:relative;
     z-index:2;
     text-align:center;
-    color:#fff;
+    color:#0e3a5a;
 }
 
 .cc-contact-content h2{
-    color:#fff;
+    color:#0e3a5a;
     margin-bottom:16px;
 }
 
 .cc-contact-content > p:not(.cc-eyebrow){
     max-width:700px;
     margin:0 auto 28px;
-    color:#eee;
+    color:#333;
     font-size:17px;
     line-height:1.8;
 }

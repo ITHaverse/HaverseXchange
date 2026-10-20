@@ -18,6 +18,26 @@ body{
     color:#0e3a5a;
     overflow-x:hidden;
     line-height:1.6;
+
+    /* Keep short pages tall enough for the footer to sit at the viewport bottom. */
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Main page content grows to fill available space; footer follows content naturally. */
+body > main{
+    flex:1 0 auto;
+}
+
+body > #footer{
+    margin-top:auto;
+    flex-shrink:0;
+}
+
+/* Shared footer should never overlay or cover page content. */
+#footer .bottom-section{
+    flex-shrink:0;
 }
 
 /* =========================================

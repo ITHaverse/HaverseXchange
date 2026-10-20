@@ -71,6 +71,7 @@
 
 .consultants-primary-btn,
 .consultants-secondary-btn{
+    border:1px solid #0e3a5a;
     display:inline-flex;
     align-items:center;
     justify-content:center;
@@ -91,13 +92,21 @@
 }
 
 .consultants-secondary-btn{
-    border:1px solid rgba(255,255,255,.6);
-    color:#fff;
-    background:rgba(255,255,255,.06)
+    border:1px solid #0e3a5a;
+    color:#0e3a5a;
+    background:#fff
 }
 
-.consultants-primary-btn:hover,
+.consultants-primary-btn:hover{
+    background:#0e3a5a;
+    color:#fff;
+    transform:translateY(-2px)
+}
+
 .consultants-secondary-btn:hover{
+    background:#d8b17c;
+    border-color:#d8b17c;
+    color:#0e3a5a;
     transform:translateY(-2px)
 }
 
@@ -289,8 +298,8 @@
 
 .consultants-cta{
     position:relative;
-    background:url('../images/event/networking 3.jpg') center/cover no-repeat;
-    color:#fff;
+    background:#fff;
+    color:#0e3a5a;
     text-align:center;
     overflow:hidden
 }
@@ -298,7 +307,7 @@
 .consultants-cta-overlay{
     position:absolute;
     inset:0;
-    background:rgba(8,29,45,.84)
+    background:transparent
 }
 
 .consultants-cta-content{
@@ -308,6 +317,7 @@
 }
 
 .consultants-cta-content h2{
+    color:#0e3a5a;
     max-width:800px;
     margin:0 auto 18px;
     font-size:clamp(34px,5vw,58px);
@@ -317,7 +327,7 @@
 .consultants-cta-content>p:not(.consultants-eyebrow){
     max-width:680px;
     margin:0 auto;
-    color:rgba(255,255,255,.8);
+    color:#333;
     line-height:1.8
 }
 

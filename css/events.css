@@ -68,6 +68,7 @@
 }
 
 .events-primary-btn,.events-secondary-btn,.events-outline-btn{
+    border:1px solid #0e3a5a;
     display:inline-flex;
     align-items:center;
     justify-content:center;
@@ -88,18 +89,27 @@
 }
 
 .events-secondary-btn{
-    border:1px solid rgba(255,255,255,.6);
-    color:#fff;
-    background:rgba(255,255,255,.06)
-}
-
-.events-outline-btn{
-    border:1px solid #c99a63;
-    color:#a87845;
+    border:1px solid #0e3a5a;
+    color:#0e3a5a;
     background:#fff
 }
 
-.events-primary-btn:hover,.events-secondary-btn:hover,.events-outline-btn:hover{
+.events-outline-btn{
+    border:1px solid #0e3a5a;
+    color:#0e3a5a;
+    background:#fff
+}
+
+.events-primary-btn:hover{
+    background:#0e3a5a;
+    color:#fff;
+    transform:translateY(-2px)
+}
+
+.events-secondary-btn:hover,.events-outline-btn:hover{
+    background:#d8b17c;
+    border-color:#d8b17c;
+    color:#0e3a5a;
     transform:translateY(-2px)
 }
 
@@ -369,8 +379,8 @@
 
 .events-cta{
     position:relative;
-    background:url('../images/background/background-7.jpg') center/cover no-repeat;
-    color:#fff;
+    background:#fff;
+    color:#0e3a5a;
     text-align:center;
     overflow:hidden
 }
@@ -378,7 +388,7 @@
 .events-cta-overlay{
     position:absolute;
     inset:0;
-    background:rgba(8,29,45,.83)
+    background:transparent
 }
 
 .events-cta-content{
@@ -388,6 +398,7 @@
 }
 
 .events-cta-content h2{
+    color:#0e3a5a;
     max-width:800px;
     margin:0 auto 18px;
     font-size:clamp(34px,5vw,58px);
@@ -397,7 +408,7 @@
 .events-cta-content>p:not(.events-eyebrow){
     max-width:650px;
     margin:0 auto;
-    color:rgba(255,255,255,.8);
+    color:#333;
     line-height:1.8
 }
 

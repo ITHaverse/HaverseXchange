@@ -75,7 +75,7 @@
         dropdown.classList.remove('open');
         dropdown.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
       });
-    }
+    } 
   });
 
   document.querySelectorAll('.main-nav a').forEach(link => {
