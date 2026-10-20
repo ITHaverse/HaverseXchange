@@ -511,3 +511,29 @@
 }
 
 
+
+/* Venue renting / Community Centre hero: remove dark overlay and use white background */
+.cc-hero{
+    background:#fff !important;
+}
+
+.cc-hero-overlay{
+    display:none !important;
+}
+
+.cc-hero-content{
+    color:#0e3a5a;
+}
+
+.cc-hero h1{
+    color:#0e3a5a;
+}
+
+.cc-hero-text{
+    color:#555;
+}
+
+.cc-hero-logo{
+    box-shadow:0 8px 24px rgba(14,58,90,.10);
+}
+

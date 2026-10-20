@@ -415,3 +415,22 @@
 }
 
 
+
+/* Consultant hero: white background with dark readable typography */
+.consultants-hero{
+    background:#fff !important; 
+    color:#0e3a5a;
+}
+
+.consultants-hero-overlay{
+    display:none !important;
+}
+
+.consultants-hero h1{
+    color:#0e3a5a;
+}
+
+.consultants-hero p:not(.consultants-eyebrow){
+    color:#555;
+}
+
