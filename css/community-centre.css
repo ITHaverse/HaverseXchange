@@ -537,3 +537,18 @@
     box-shadow:0 8px 24px rgba(14,58,90,.10);
 }
 
+
+
+/* Community Centre logo: show the complete rectangular brand logo without circular cropping */
+.cc-hero-logo{
+    display:block;
+    width:min(440px, 80vw);
+    height:auto;
+    max-width:100%;
+    object-fit:contain;
+    margin:0 auto 28px;
+    padding:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+}
