@@ -1780,3 +1780,29 @@ body{
 .intro-logo{
     box-shadow:0 8px 24px rgba(14,58,90,.10);
 }
+
+
+/* Homepage shared slider: position captions at the top centre to keep faces clear. */
+.site-slide-caption {
+    position: absolute;
+    top: clamp(24px, 7%, 64px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1100px, 90%);
+    margin: 0;
+    text-align: center;
+    z-index: 2;
+}
+.site-slide-caption h1 {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width: 768px) {
+    .site-slide-caption {
+        top: 7%;
+        width: calc(100% - 32px);
+    }
+    .site-slide-caption p { margin-bottom: 8px; }
+    .site-slide-caption h1 { font-size: clamp(22px, 5.5vw, 34px); }
+}
