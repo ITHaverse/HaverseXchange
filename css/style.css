@@ -1723,7 +1723,7 @@ body{
     opacity: 0;
     visibility: hidden;
     transform: scale(1.025);
-    transition: opacity .8s ease, transform 5.2s ease, visibility .8s;
+    transition: opacity .6s ease, transform 3.5s ease, visibility .6s;
 }
 .site-slide.is-active { 
     opacity: 1; 

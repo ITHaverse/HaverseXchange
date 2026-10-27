@@ -23,7 +23,7 @@
 
   function start() {
     window.clearInterval(timer);
-    if (!document.hidden) timer = window.setInterval(() => show(current + 1), 5000);
+    if (!document.hidden) timer = window.setInterval(() => show(current + 1), 3500);
   }
 
   slider.addEventListener('pointerdown', (event) => {
