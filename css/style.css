@@ -530,6 +530,8 @@ section{
 
 @media(max-width:480px){
 
+.footer-contact-details a{ overflow-wrap:anywhere; }
+
 .event-information{
     gap:10px;
 }
@@ -925,6 +927,47 @@ section{
     color:#d8b17c;
 }
 
+/* Footer contact alignment: each pair aligns within its own group. */
+.footer-contact-group{
+    display:grid;
+    align-items:start;
+    margin-bottom:14px;
+    line-height:1.6;
+}
+
+.footer-whatsapp{
+    grid-template-columns:max-content minmax(0, 1fr);
+    column-gap:10px;
+}
+
+.footer-email{
+    grid-template-columns:max-content minmax(0, 1fr);
+    column-gap:8px;
+}
+
+.footer-contact-label{
+    color:#fff;
+    white-space:nowrap;
+}
+
+.footer-contact-details{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    min-width:0;
+}
+
+.footer-column .footer-contact-details a{
+    display:block;
+    margin:0 0 2px;
+    line-height:1.6;
+    white-space:normal;
+}
+
+.footer-column .footer-contact-group a:hover{
+    color:#d8b17c;
+}
+
 /* ===========================
    COPYRIGHT
 =========================== */
@@ -984,6 +1027,20 @@ section{
 
 .footer-column{
     text-align:center;
+}
+
+/* Center the complete contact groups on mobile while preserving
+   consistent alignment between each pair of phone numbers/emails. */
+.footer-contact-group{
+    width:max-content;
+    max-width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+}
+
+.footer-contact-details{
+    min-width:0;
 }
 
 .social-icons{
